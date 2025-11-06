@@ -1,0 +1,431 @@
+/* main_styles.css - Unified styles for Rogers Python Intro */
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+#container {
+    display: flex;
+    height: 100vh;
+    gap: 0;
+}
+
+#left {
+    flex: 1;
+    overflow: auto;
+}
+
+#right {
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+}
+
+#divider {
+    width: 5px;
+    background-color: #ccc;
+    cursor: col-resize;
+}
+
+#headertext {
+    display: flex;
+    margin: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+#breadcrumb-container {
+    margin: 10px 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#breadcrumb-container a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+#breadcrumb-container a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+thead {
+    background-color: #2c3e50;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 3px solid #34495e;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.task-num {
+    color: #3498db;
+    font-weight: 600;
+    width: 10%;
+}
+
+/* ============================================
+   CODE & COMMANDS
+   ============================================ */
+.command {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #c7254e;
+    white-space: nowrap;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+pre .command {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* ============================================
+   CODE EDITOR
+   ============================================ */
+.editor-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#code-editor {
+    width: 100%;
+    min-height: 300px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+/* CodeMirror overrides */
+.CodeMirror {
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:active {
+    background-color: #21618c;
+}
+
+#REPLRun {
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ============================================
+   TAB INTERFACE
+   ============================================ */
+.tab-container {
+    margin: 20px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tab-button.active {
+    background-color: #3498db;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ============================================
+   IFRAMES
+   ============================================ */
+iframe {
+    width: 100%;
+    height: 90vh;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* ============================================
+   CHANNEL & HUB INTERFACE
+   ============================================ */
+#all_things_channels,
+#hub1,
+#hub2 {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Activity/status text */
+div[id^="activity"] {
+    color: #0000FF;
+    width: 800px;
+    font-size: 9px;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
+
+/* Live indicator dot */
+div[id^="live"] {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* ============================================
+   PYSCRIPT TERMINAL
+   ============================================ */
+py-terminal,
+.py-terminal {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.blue-text {
+    color: #0000FF;
+}
+
+.error-text {
+    color: #e74c3c;
+}
+
+.success-text {
+    color: #27ae60;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+    
+    #divider {
+        width: 100%;
+        height: 5px;
+        cursor: row-resize;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        width: 100%;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* ============================================
+   SPECIAL ELEMENTS
+   ============================================ */
+em {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ecf0f1;
+    margin: 30px 0;
+}
+
+/* Skull button (unstuck button) */
+button:has-text("☠️") {
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+button:has-text("☠️"):hover {
+    background-color: #c0392b;
+}
+
+

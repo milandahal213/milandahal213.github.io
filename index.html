@@ -17,8 +17,9 @@
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
     
-    <!-- my CSS -->
-    <link rel="stylesheet" href="https://milandahal213.github.io/instr_styles.css">
+    <!-- my CSS 
+    <link rel="stylesheet" href="instr_styles.css">-->
+    <link rel="stylesheet" href="https://milandahal213.github.io/main_styles.css">
     
     <script>/*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
         /*! mini-coi - Andrea Giammarchi and contributors, licensed under MIT */
@@ -50,51 +51,14 @@
         })(self);
     </script>
     
-    <style>
-        .tab-container {
-            margin: 20px;
-        }
-        .tab-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .tab-button {
-            padding: 10px 20px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .tab-button:hover {
-            background-color: #34495e;
-        }
-        .tab-button.active {
-            background-color: #3498db;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        iframe {
-            width: 100%;
-            height: 90vh;
-            border: none;
-        }
-    </style>
+    
 </head>
 <body>
     <h1 style="text-align: center;">Rogers Python Intro</h1>
     
     <div class="tab-container">
         <div class="tab-buttons">
-            <button class="tab-button active" onclick="showTab('intro')">Intro</button>
-            <button class="tab-button" onclick="showTab('starters')">Python Starters</button>
+            <button class="tab-button active" onclick="showTab('starters')">Python Starters</button>
             <button class="tab-button" onclick="showTab('discovery')">Discovery</button>
             <button class="tab-button" onclick="showTab('channels')">Channels</button>
             <button class="tab-button" onclick="showTab('lego')">LEGO</button>
