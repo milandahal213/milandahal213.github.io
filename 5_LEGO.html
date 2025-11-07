@@ -23,20 +23,20 @@
     <link rel="stylesheet" href="./main_styles.css">
 </head>
 <body>
-    <h1 style="text-align: center;">Rogers Python Intro</h1>
-
-    <div id="headertext" style="display: flex;  margin: 20px;">
-The goal of this page is to learn how to talk to the Tech Elements.
+        <div id="headertext" style="display: flex;  margin: 20px;">
+ 
     </div>
-
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-            <div id="code" class="editor-container" >
-                <h2>Writing your own code</h2>
-                <textarea id="code-editor" ></textarea>
-                <button id="REPLRun">Run in REPL</button>
-            </div>
-        </div>
+        <h3>Python with LEGO Elements</h3>       
+        <p class="paragraph-11">Connect to a motor and type these commands in the REPL.</p> 
+        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">motor.set_speed(50)</li></ul>
+        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">motor.run()</li></ul>
+        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">motor.stop()</li></ul>
+
+
+        <p class="paragraph-10">Can you change the speed of the motor?<br>‍<br></p>
+    </div>
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
@@ -45,12 +45,11 @@ The goal of this page is to learn how to talk to the Tech Elements.
             <div id='hub2'></div>
         </div>
     </div>
-
-<!-- CodeMirror JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
-    
-    <script src="scripts.js"></script>    
-     
+    <script src="scripts.js"></script>
 </body>
 </html>
+
+
+
+
+
