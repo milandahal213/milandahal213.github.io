@@ -6,7 +6,14 @@ name = "Billowing Tooth"
 "./pyConst.py" = ""
 "./SpikePrime.py" = ""
 "./TechElement.py" = ""
-"./TechElement_EP2.py" = ""
+"./1_starters.py" = ""
+"./2_discover.py" = ""
+"./2_loops.py" = ""
+"./3_libraries.py = ""
+"./4_channels.py" = ""
+"./5_LEGO.py" = ""
+"./6_codeEditor.py" = ""
+
 
 [js_modules.main]
 "./ble.js" = "ble"
