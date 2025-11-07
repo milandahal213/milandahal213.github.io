@@ -8,3 +8,5 @@ Note that you can connect to a channel and communicate to others that way as wel
 This project uses [PyScript](https://pyscript.net/) to
 provide a version of the Python REPL in the browser. To
 learn how it works [read these docs](https://docs.pyscript.net/latest/user-guide/terminal/).
+
+Rebecca and Milan say hi
