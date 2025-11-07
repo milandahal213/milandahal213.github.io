@@ -18,28 +18,40 @@
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
 
-
-    <!-- my CSS 
-    <link rel="stylesheet" href="instr_styles.css">-->
+    <!-- my CSS -->
     <link rel="stylesheet" href="./main_styles.css">
 </head>
 
 <body>
-
-    <div id="headertext" style="display: flex;  margin: 20px;">
+    <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
+            <h3>LEGO Tech Elements</h3>
+            <p class="paragraph-11">Connect to your LEGO Tech Elements using Bluetooth.<br><br>
             
+            Click the Connect button to scan for nearby devices.<br><br>
+            
+            Once connected, you can control motors and read sensors from the REPL.<br><br>
+            </p>
+            
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">element1.run(port=1, direction=2)</li>
+                <li class="code-list-item">element1.set_speed(100, port=1)</li>
+                <li class="code-list-item">element1.stop(port=1)</li>
+            </ul>
+            
+            <p class="paragraph-10">Try controlling the motors!<br></p>
         </div>
-
+        
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+        
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
-            <script id="python-terminal" type="mpy" src="./5_LEGO.py" config="./pyscript.toml" terminal></script>
             <div id='hub1'></div>
             <div id='hub2'></div>
-
+            <script id="python-terminal" type="mpy" src="./5_LEGO.py" env = 'image' config="./pyscript.toml" terminal></script>
         </div>
     </div>
+    
     <script src="scripts.js"></script>
 </body>
 
