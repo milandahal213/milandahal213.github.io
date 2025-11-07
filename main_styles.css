@@ -691,3 +691,264 @@ button[onclick*="unstuck"]:hover {
 .code-examples-container {
     margin: 30px 0;
 }
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+#container {
+    display: flex;
+    height: 100vh;
+    gap: 0;
+    position: relative;
+}
+
+#left {
+    flex: 1;
+    overflow: auto;
+    background-color: #e8e8e8;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+#right {
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    position: relative;
+    z-index: 1;
+}
+
+#divider {
+    width: 5px;
+    background-color: #999;
+    cursor: col-resize;
+    z-index: 2;
+}
+
+/* ============================================
+   TAB INTERFACE
+   ============================================ */
+.tab-container {
+    margin: 0;
+    position: relative;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+    padding: 0;
+    background-color: #d4d4d4;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 4px solid #ffd700;
+    position: relative;
+    z-index: 10;
+}
+
+.tab-button {
+    padding: 15px 25px;
+    background-color: #d4d4d4;
+    color: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 4px solid transparent;
+    margin-bottom: -4px;
+    position: relative;
+}
+
+.tab-button:hover {
+    background-color: #c0c0c0;
+    border-bottom: 4px solid rgba(255, 215, 0, 0.5);
+    transform: none;
+    box-shadow: none;
+}
+
+.tab-button.active {
+    background-color: #e8e8e8;
+    border-bottom: 4px solid #ffd700;
+    color: #000;
+}
+
+.tab-content {
+    display: none;
+    background-color: #e8e8e8;
+    position: relative;
+    z-index: 5;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ============================================
+   TOOLTIP STYLES (UPDATED)
+   ============================================ */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    z-index: 1000;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 400px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    text-align: left;
+    border-radius: 0;
+    padding: 20px;
+    position: fixed;
+    z-index: 10000;
+    font-size: 1em;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+    pointer-events: none;
+}
+
+/* Arrow pointing down */
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 20px;
+    margin-left: 0;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #2a2a2a transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* JavaScript will position this dynamically */
+.tooltip .tooltip-text.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ============================================
+   CONTENT SECTIONS WITH FLEX LAYOUT
+   ============================================ */
+
+/* Section container for Python Basics style content */
+.content-section {
+    padding: 40px;
+    background-color: #e8e8e8;
+    margin: 0;
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.content-section p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #333;
+    margin: 20px 0;
+    padding: 0;
+}
+
+/* Flex layout for content and REPL side by side */
+.content-flex-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.content-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-right {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Note text styling */
+.note-text {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95em;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid #ffd700;
+}
+
+/* ============================================
+   CODE EXAMPLE BOXES
+   ============================================ */
+
+.code-example-box {
+    background-color: #c4c4c4;
+    padding: 20px 25px;
+    border-radius: 12px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 1.15em;
+    color: #1a1a1a;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.code-examples-container {
+    margin: 30px 0;
+}
+
+/* Yellow underline for important terms */
+.underline-yellow {
+    text-decoration: underline;
+    text-decoration-color: #ffd700;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+}
+
+/* Yellow highlight for inline code examples */
+.highlight-code {
+    background-color: #ffd700;
+    color: #1a1a1a;
+    padding: 2px 6px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-weight: 600;
+    display: inline;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN UPDATES
+   ============================================ */
+@media (max-width: 1024px) {
+    .content-flex-container {
+        flex-direction: column;
+    }
+    
+    .content-left,
+    .content-right {
+        flex: none;
+        width: 100%;
+    }
+}
