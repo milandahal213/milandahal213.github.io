@@ -359,12 +359,14 @@ button {
     letter-spacing: 1px;
 }
 
+/*
 button:hover {
     background-color: #333;
-    transform: translateY(-2px);
+    /*transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+*/
 button:active {
     background-color: #000;
     transform: translateY(0);
@@ -656,4 +658,9 @@ iframe {
     padding: 4px 10px 10px;
     font-size: 16px;
     line-height: 1.4;
+}
+
+button[id^="channel_connect"],
+button[id^="sync"] {
+    transform: none !important;
 }

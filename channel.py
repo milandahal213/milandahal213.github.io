@@ -169,9 +169,7 @@ class CEEO_Channel():
             print(e)
         
     def close(self):
-        if self.socket:  # Add this check
-            self.socket.close()
-
+        self.socket.close()
         self.reconnect_attempts = self.max_reconnect_attempts
         self.is_connected = False
         self.liveBtn.style.backgroundColor = 'red'
