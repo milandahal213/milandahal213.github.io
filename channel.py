@@ -24,8 +24,7 @@ def iscoroutinefunction(obj):
 
     return inspect.iscoroutinefunction(obj)
     
-ChannelHTML = '''
-<table>    
+ChannelHTML = '''<table>    
   <tr>
     <td><button id = 'channel_connect{num}'>connect</button></td>
     <td><div id = 'live{num}' style="background-color: red; width: 10px; height: 10px; border-radius: 5px; display: inline-block;"></div> </td>
