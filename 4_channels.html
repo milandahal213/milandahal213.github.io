@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>REPL</title>
 
@@ -15,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
-    
+
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
@@ -27,36 +28,42 @@
 
 
 </head>
+
 <body>
 
-     <div id="headertext" style="display: flex;  margin: 20px;">
+    <div id="headertext" style="display: flex;  margin: 20px;">
         <div id="left" style="flex: 1; overflow: auto;">
-        <h3>Channels</h3>       
-        <p class="paragraph-11">Another powerful part of Python is the ability to interact on channels. Python channels allow two webpages to exchange messages and data.<br><br>
-    
-        Hit the connect button to enable the channels.<br><br>
-    
-        You can use the text box (send this) to type your message and hit the send button to send message.<br><br>
+            <h3>Channels</h3>
+            <p class="paragraph-11">Another powerful part of Python is the ability to interact on channels. Python
+                channels allow two webpages to exchange messages and data.<br><br>
 
-        or you can use the REPL to send messages. <br><br>
-        
-        </p> 
+                Hit the connect button to enable the channels.<br><br>
 
-        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">channel.send("Hello there!!")<br></li></ul>
+                You can use the text box (send this) to type your message and hit the send button to send
+                message.<br><br>
 
-        <p class="paragraph-11">Try sending something else! <br><br>
-        <p class="paragraph-10">We will use channels to collaborate across groups.<br>‍<br></p>
-    </div>
+                or you can use the REPL to send messages. <br><br>
+
+            </p>
+
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">channel.send("Hello there!!")<br></li>
+            </ul>
+
+            <p class="paragraph-11">Try sending something else! <br><br>
+            <p class="paragraph-10">We will use channels to collaborate across groups.<br>‍<br></p>
+        </div>
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
             <script id="python-terminal" type="mpy" src="./4_channels.py" config="./pyscript.toml" terminal></script>
             <div id='hub1'></div>
             <div id='hub2'></div>
-       
+
         </div>
     </div>
     <script src="scripts.js"></script>
     <textarea id="code-editor"></textarea>
 </body>
+
 </html>
