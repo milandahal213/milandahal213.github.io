@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>REPL</title>
 
@@ -14,45 +13,44 @@
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
-
+    
     <!-- CodeMirror CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">   
 
-    <!-- my CSS -->
+
+    <!-- my CSS 
+    <link rel="stylesheet" href="instr_styles.css">-->
     <link rel="stylesheet" href="./main_styles.css">
 </head>
-
 <body>
+    <h1 style="text-align: center;">Rogers Python Intro</h1>
+
+    <div id="headertext" style="display: flex;  margin: 20px;">
+The goal of this page is to learn how to talk to the Tech Elements.
+    </div>
+
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-            <h3>LEGO Tech Elements</h3>
-            <p class="paragraph-11">Connect to your LEGO Tech Elements using Bluetooth.<br><br>
-            
-            Click the Connect button to scan for nearby devices.<br><br>
-            
-            Once connected, you can control motors and read sensors from the REPL.<br><br>
-            </p>
-            
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">element1.run(port=1, direction=2)</li>
-                <li class="code-list-item">element1.set_speed(100, port=1)</li>
-                <li class="code-list-item">element1.stop(port=1)</li>
-            </ul>
-            
-            <p class="paragraph-10">Try controlling the motors!<br></p>
+            <div id="code" class="editor-container" >
+                <h2>Writing your own code</h2>
+                <textarea id="code-editor" ></textarea>
+                <button id="REPLRun">Run in REPL</button>
+            </div>
         </div>
-        
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
-        
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
+            <script id="python-terminal" type="mpy" src="./5_LEGO.py" config="./pyscript.toml" env = 'image' terminal></script>
             <div id='hub1'></div>
             <div id='hub2'></div>
-            <script id="python-terminal" type="mpy" src="./5_LEGO.py" env = 'image' config="./pyscript.toml" terminal></script>
         </div>
     </div>
-    
-    <script src="scripts.js"></script>
-</body>
 
+<!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    
+    <script src="scripts.js"></script>    
+     
+</body>
 </html>
