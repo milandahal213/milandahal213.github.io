@@ -20,46 +20,40 @@
 </head>
 <body>
 
-<div class="content-section">
-    <h2>PYTHON BASICS</h2>
-    
-    <div class="content-flex-container">
-        <div class="content-left">
-            <p>
-                Let's practice some Python basics with this 
-                <span class="tooltip underline-yellow">REPL
-                    <span class="tooltip-text">
-                        A REPL is like a live chat with your computer. You type a command and it answers 
-                        right away. REPL stands for Read, Evaluate, Print, Loop. Read: The computer reads 
-                        what you type. Evaluate: It runs or calculates your code. Print: It shows you the result.
-                    </span>
-                </span>. This is a tool that lets you type one line of code at a time and instantly see the result.
-            </p>
-            
-            <div class="code-examples-container">
-                <div class="code-example-box">2+2</div>
-                <div class="code-example-box">print("hello!")</div>
-            </div>
-            
-            <p>Try a different math problem.</p>
-            
-            <p>Try printing a different word or phrase.</p>
-            
-            <p class="note-text">
-                Note that when you run code in the REPL, the webpage will not respond until it is done
-            </p>
-        </div>
-        
 
-        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
-            <script id="python-terminal" type="mpy" src="./2_discover.py" config="./pyscript.toml" terminal worker></script>
-        </div>
+    
+    <div class="content-section">
+    <h2>Python Basics</h2>
+    
+    <p>
+        Let's practice some Python basics with this 
+        <span class="tooltip underline-yellow">REPL
+            <span class="tooltip-text">
+                A REPL is like a live chat with your computer. You type a command and it answers 
+                right away. REPL stands for Read, Evaluate, Print, Loop. Read: The computer reads 
+                what you type. Evaluate: It runs or calculates your code. Print: It shows you the result.
+            </span>
+        </span>. This is a tool that lets you type one line of code at a time and instantly see the result.
+    </p>
+    
+    <div class="code-examples-container">
+        <div class="code-example-box">2+2</div>
+        <div class="code-example-box">print("hello!")</div>
     </div>
+    
+    <p>Try a different math problem.</p>
+    
+    <p>Try printing a different word or phrase.</p>
 </div>
 
 
 
-
+        <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+            <em>Note that when you run code in the REPL, the webpage will not respond until it is done</em>
+            <script id="python-terminal" type="mpy" src="./1_starters.py" config="./pyscript.toml" terminal worker></script>
+        </div>
+    </div>
     
     <script src="scripts.js"></script>    
 </body>
