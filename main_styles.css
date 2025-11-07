@@ -517,3 +517,107 @@ button[onclick*="unstuck"] {
 button[onclick*="unstuck"]:hover {
     background-color: #b71c1c;
 }
+
+/* ============================================
+   TOOLTIP STYLES
+   ============================================ */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 400px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    text-align: left;
+    border-radius: 0;
+    padding: 20px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -200px;
+    font-size: 1em;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Arrow pointing down */
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #2a2a2a transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Optional: Adjust for tooltips on right side */
+.tooltip-right .tooltip-text {
+    bottom: auto;
+    left: 105%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+}
+
+.tooltip-right .tooltip-text::after {
+    top: 50%;
+    left: -8px;
+    margin-top: -8px;
+    border-color: transparent #2a2a2a transparent transparent;
+}
+
+/* Optional: Adjust for tooltips on left side */
+.tooltip-left .tooltip-text {
+    bottom: auto;
+    right: 105%;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+}
+
+.tooltip-left .tooltip-text::after {
+    top: 50%;
+    right: -8px;
+    left: auto;
+    margin-top: -8px;
+    border-color: transparent transparent transparent #2a2a2a;
+}
+
+/* Optional: Wide tooltip for longer text */
+.tooltip-wide .tooltip-text {
+    width: 500px;
+    margin-left: -250px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .tooltip .tooltip-text {
+        width: 280px;
+        margin-left: -140px;
+        font-size: 0.9em;
+        padding: 15px;
+    }
+    
+    .tooltip-wide .tooltip-text {
+        width: 280px;
+        margin-left: -140px;
+    }
+}
