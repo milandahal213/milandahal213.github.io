@@ -621,3 +621,73 @@ button[onclick*="unstuck"]:hover {
         margin-left: -140px;
     }
 }
+
+/* ============================================
+   TEXT HIGHLIGHTING & INLINE CODE
+   ============================================ */
+
+/* Yellow highlight for inline code examples */
+.highlight-code {
+    background-color: #ffd700;
+    color: #1a1a1a;
+    padding: 2px 6px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-weight: 600;
+    display: inline;
+}
+
+/* Yellow underline for important terms */
+.underline-yellow {
+    text-decoration: underline;
+    text-decoration-color: #ffd700;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+}
+
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+
+/* Section container for Python Basics style content */
+.content-section {
+    padding: 40px;
+    background-color: #e8e8e8;
+    margin: 0;
+}
+
+.content-section h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.content-section p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #333;
+    margin: 20px 0;
+    padding: 0;
+}
+
+/* ============================================
+   CODE EXAMPLE BOXES
+   ============================================ */
+
+.code-example-box {
+    background-color: #c4c4c4;
+    padding: 20px 25px;
+    border-radius: 12px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 1.15em;
+    color: #1a1a1a;
+    margin: 15px 0;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.code-examples-container {
+    margin: 30px 0;
+}
