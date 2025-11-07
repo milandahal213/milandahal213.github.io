@@ -27,7 +27,7 @@ def iscoroutinefunction(obj):
 ChannelHTML = '''<h3 id = 'title{num}'>Channel Setup</h3>
 <table>    
   <tr>
-    <td><button id = 'channel_connect{num}'>connect</button></td>
+    <td><button class="new" id = 'channel_connect{num}'>connect</button></td>
     <td><div id = 'live{num}' style="background-color: red; width: 10px; height: 10px; border-radius: 5px; display: inline-block;"></div> </td>
     <td>channel </td>
     <td><input id = 'topic{num}' maxlength = 50 type='text' value = {dtopic} style = 'color:#0000FF'></td>
@@ -169,7 +169,9 @@ class CEEO_Channel():
             print(e)
         
     def close(self):
-        self.socket.close()
+        if self.socket:  # Add this check
+            self.socket.close()
+
         self.reconnect_attempts = self.max_reconnect_attempts
         self.is_connected = False
         self.liveBtn.style.backgroundColor = 'red'
