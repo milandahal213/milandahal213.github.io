@@ -56,15 +56,14 @@
 <body>
     <div class="tab-container">
         <div class="tab-buttons">
-            <button class="tab-button active" onclick="showTab('starters')">Python Starters</button>
-            <button class="tab-button" onclick="showTab('discovery')">Discovery</button>
+            <button class="tab-button active" onclick="showTab('starters')">Basics</button>
+            <button class="tab-button" onclick="showTab('loops')">Loops</button>
+            <button class="tab-button" onclick="showTab('libraries')">Libraries</button>
             <button class="tab-button" onclick="showTab('channels')">Channels</button>
-            <button class="tab-button" onclick="showTab('lego')">LEGO</button>
-            <button class="tab-button" onclick="showTab('eels')">1: Eels</button>
-            <button class="tab-button" onclick="showTab('cliffs')">2: Cliffs</button>
-            <button class="tab-button" onclick="showTab('swords')">3: Swords</button>
-            <button class="tab-button" onclick="showTab('giants')">4: Giants</button>
-            <button class="tab-button" onclick="showTab('poison')">5: Poison</button>
+            <button class="tab-button" onclick="showTab('lego')">CONNECT LEGO</button>
+            <button class="tab-button" onclick="showTab('lego')">Code Editor</button>
+            
+
         </div>
         
         <!-- Tab Contents -->
@@ -72,8 +71,15 @@
             <iframe src="./1_starters.html"></iframe>
         </div>
         
+        <div id="loops" class="tab-content">
+            <iframe src="./2_loops.html"></iframe>
+        </div>
+        <div id="libraries" class="tab-content">
+            <iframe src="./3_libraries.html"></iframe>
+        </div>
+
         <div id="discovery" class="tab-content">
-            <iframe src="./2_discover.html"></iframe>
+            <iframe src="./2_loops.html"></iframe>
         </div>
         
         <div id="channels" class="tab-content">

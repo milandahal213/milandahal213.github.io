@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>REPL</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- Safari SharedArrayBuffer -->
+    <script src="./safari-sab.js"></script>
+
+    <!-- PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
+
+    <!-- my CSS 
+    <link rel="stylesheet" href="instr_styles.css">-->
+    <link rel="stylesheet" href="./main_styles.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+    <div id="headertext" style="display: flex;  margin: 20px;">
+ 
+    </div>
+    <div id="container" style="display: flex; height: 100vh; gap: 0;">
+        <div id="left" style="flex: 1; overflow: auto;">
+        <h3>Python Libraries</h3>       
+        <p class="paragraph-11">A powerful aspect of Python is the ability to import <span class="fs-tooltip" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="This example will print the word “hello” 10 times." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true" fb-tooltip-trigger="hover">libraries</span>.</p>
+
+        <p class="paragraph-11">When you import a Python library, your program can use the library’s pre-written <span class="fs-tooltip" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true" fb-tooltip-trigger="hover">tools</span> and <span class="fs-tooltip" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true" fb-tooltip-trigger="hover">functions</span>.</p> 
+        <p class="paragraph-11">Let’s try importing a library</p>
+        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">import time<br>
+        for i in range(10):  <br>  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(i)  <br>  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1)<br>
+        </li></ul>
+
+    </div>
+        <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+            <script id="python-terminal" type="mpy" src="./1_starters.py" config="./pyscript.toml" terminal worker></script>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+A powerful aspect of Python is the ability to import libraries.
+
+When you import a Python library, your program can use the library’s pre-written tools and functions. 
+
+Let’s try importing a library
+
+import time
+for i in range(10):    
+     print(i)    
+     time.sleep(1)
