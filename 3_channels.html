@@ -30,44 +30,14 @@
     <h1 style="text-align: center;">Rogers Python Intro</h1>
 
     <div id="headertext" style="display: flex;  margin: 20px;">
-The goal of this page is to learn how channels work - they are a powerful way for any two webpages to talk to each other.
-We will use channels to help all the inventions work together.
-    </div>
-<button onclick="globalThis.unstuck=true">☠️</button>
-    <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Goal</th>
-                    <th>Try This</th>
-                    <th>What to Observe</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="task-num">1</td>
-                    <td>Post something on the channel (after you have connected)</td>
-                    <td>type <span class="command">channel.send('/LEGO','it worked')</span> and hit return</td>
-                    <td>You should see that appear above in blue.  So should anyone connected to the channel</td>
-                </tr>
-                <tr>
-                    <td class="task-num">2</td>
-                    <td>Send only to a friend</td>
-                    <td>Change the topic (/LEGO) to something else - and tell your friend
-                        <span class="command">channel.send('/new','it is a secret')</span> and then press tab</td>
-                    <td>Only those people that have your topic typed in will see your message.</td>
-                </tr>
-                <tr>
-                    <td class="task-num">3</td>
-                    <td>Reading a channel</td>
-                    <td>the variable <span class="command">channel.msg</span> will have the latest channel value</td>
-                    <td>What result do you get?</td>
-                </tr>
-             </tbody>
-        </table>
-        </div>
+        <h3>Python Loops</h3>       
+        <p class="paragraph-11">Python allows you to repeat sections of code with a loop.</p> 
+        <p class="paragraph-11">Try creating a  <span class="fs-tooltip" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="This example will print the word “hello” 10 times." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true" fb-tooltip-trigger="hover">“for loop.”</span>.</p>
+        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">for i in range(10):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("hello")</li></ul>
+        <p class="paragraph-10">Try changing the number of times the loop repeats.<br>‍<br></p>
+    </div>
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
