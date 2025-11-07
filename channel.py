@@ -69,13 +69,18 @@ class CEEO_Channel():
         self.c_btn.onclick = self.connect_disconnect
 
 
-    def connect_disconnect(self, event):   
+    def connect_disconnect(self, event):
+        window.console.log(f"Button text: {self.c_btn.innerText}")
+        window.console.log(f"Socket is: {self.socket}")
+        
         if self.c_btn.innerText == 'connect':
             self.setupSocket()
             self.c_btn.innerText = 'disconnect'
         else:
             self.c_btn.innerText = 'connect'
             self.close()
+
+
 
     def setupSocket(self):
         self.url = f"wss://{self.user}.pyscriptapps.com/{self.project}/api/channels/{self.channel}"

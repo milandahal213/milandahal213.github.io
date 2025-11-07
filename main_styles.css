@@ -347,7 +347,7 @@ pre {
    ============================================ */
 button {
     padding: 12px 24px;
-    background-color: #1a1a1a;
+    background-color: #7a0095;
     color: white;
     border: none;
     cursor: pointer;
@@ -359,14 +359,14 @@ button {
     letter-spacing: 1px;
 }
 
-/*
+
 button:hover {
-    background-color: #333;
-    /*transform: translateY(-2px);
+    background-color: #007096;
+   transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-*/
+
 button:active {
     background-color: #000;
     transform: translateY(0);
