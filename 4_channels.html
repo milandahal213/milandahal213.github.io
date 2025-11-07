@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>REPL</title>
 
@@ -15,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
-    
+
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
@@ -27,9 +28,10 @@
 
 
 </head>
+
 <body>
 
-     <div id="headertext" style="display: flex;  margin: 20px;">
+    <div id="headertext" style="display: flex;  margin: 20px;">
         <div id="left" style="flex: 1; overflow: auto;">
         <h3>Channels</h3>       
         <p class="paragraph-11">Another powerful part of Python is the ability to exchange information through channels across different computers.<br><br>
@@ -49,16 +51,16 @@
             </li></ul>
 
     </div>
+
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
             <div id='all_things_channels'></div>
             <script id="python-terminal" type="mpy" src="./4_channels.py" config="./pyscript.toml" terminal></script>
-            <div id='hub1'></div>
-            <div id='hub2'></div>
-       
+            
         </div>
     </div>
     <script src="scripts.js"></script>
     <textarea id="code-editor"></textarea>
 </body>
+
 </html>
