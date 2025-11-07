@@ -6,7 +6,6 @@ def unstuck(condition):
         raise Exception("program now unstuck")
 
     return condition
-
 import channel as _ch
 import asyncio
 
