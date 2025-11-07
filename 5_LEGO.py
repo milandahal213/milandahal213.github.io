@@ -161,17 +161,3 @@ def rename():
 
 
 
-from pyscript.js_modules import code_editor
-python_terminal = document.getElementById("python-terminal")
-@when('click','#REPLRun')
-def typeIt():
-    python_terminal.process('\x03')
-    mycode = code_editor.editor.getValue()
-    lines = mycode.split("\n")
-    python_terminal.process('\x05')
-    for line in lines:
-        for char in line:
-            python_terminal.terminal.write(char)
-        python_terminal.terminal.write("\x1b[2K\r>>> ")
-        python_terminal.process(line.strip())
-    python_terminal.process('\x04')
