@@ -24,7 +24,7 @@ def iscoroutinefunction(obj):
 
     return inspect.iscoroutinefunction(obj)
     
-ChannelHTML = '''<h3 id = 'title{num}'>Channel Setup</h3>
+ChannelHTML = '''
 <table>    
   <tr>
     <td><button id = 'channel_connect{num}'>connect</button></td>
