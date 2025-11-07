@@ -1,6 +1,16 @@
 /* main_styles.css - Unified styles for Rogers Python Intro */
 
 /* ============================================
+   CSS VARIABLES
+   ============================================ */
+:root {
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --white: #fff;
+}
+
+/* ============================================
    BASE STYLES
    ============================================ */
 body {
@@ -95,45 +105,75 @@ em {
 .tab-buttons {
     display: flex;
     gap: 0;
-    margin-bottom: 0;
-    flex-wrap: wrap;
+    margin: 0;
     padding: 0;
-    background-color: #d4d4d4;
-    border-radius: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-bottom: 4px solid #ffd700;
+    width: 100%;
+    font-family: Koulen, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
     position: relative;
     z-index: 10;
+    border-bottom: 4px solid var(--yellow);
 }
 
 .tab-button {
-    padding: 15px 25px;
-    background-color: #d4d4d4;
-    color: #1a1a1a;
-    border: none;
+    vertical-align: top;
+    text-align: center;
     cursor: pointer;
-    border-radius: 0;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-bottom: 4px solid transparent;
-    margin-bottom: -4px;
+    color: #222;
+    background-color: #ddd;
+    padding: 15px 30px;
+    text-decoration: none;
+    display: inline-block;
     position: relative;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.tab-button:hover {
-    background-color: #c0c0c0;
-    border-bottom: 4px solid rgba(255, 215, 0, 0.5);
-    transform: none;
-    box-shadow: none;
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    background-color: var(--yellow);
+    transition: height 0.3s cubic-bezier(.77, 0, .175, 1);
+    z-index: -1;
+}
+
+.tab-button:hover::after {
+    height: 50%;
 }
 
 .tab-button.active {
-    background-color: #e8e8e8;
-    border-bottom: 4px solid #ffd700;
-    color: #000;
+    background-color: #c9c9c9;
+    color: var(--black);
+}
+
+.tab-button.active::after {
+    height: 50%;
+    background-color: #e6c200;
+}
+
+.tab-button.leaving::after {
+    animation: yellowDrop 0.3s cubic-bezier(.77, 0, .175, 1) forwards;
+}
+
+@keyframes yellowDrop {
+    from {
+        height: 50%;
+    }
+    to {
+        height: 0%;
+    }
 }
 
 .tab-content {
@@ -459,88 +499,31 @@ iframe {
     
     .tab-button {
         width: 100%;
-        border-bottom: none;
-        border-left: 4px solid transparent;
     }
 
-    .tab-button.active {
-        border-left: 4px solid #ffd700;
-    }
-    
-    table {
-        font-size: 12px;
-    }
-    
-    th, td {
-        padding: 10px;
-    }
-
-    .tooltip .tooltip-text {
-        width: 280px;
-        font-size: 0.9em;
-        padding: 15px;
-    }
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    background-color: var(--yellow);
+    transition: height 0.3s cubic-bezier(.77, 0, .175, 1);
+    z-index: -1;
 }
 
-/* ============================================
-   TAB INTERFACE
-   ============================================ */
-.tab-container {
-    margin: 0;
-    position: relative;
-}
-
-.tab-buttons {
-    display: flex;
-    gap: 0;
-    margin-bottom: 0;
-    flex-wrap: wrap;
-    padding: 0;
-    background-color: #d4d4d4;
-    border-radius: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-bottom: 4px solid #ffd700;
-    position: relative;
-    z-index: 10;
-}
-
-.tab-button {
-    padding: 20px 30px;
-    background-color: #d4d4d4;
-    color: #1a1a1a;
-    border: none;
-    cursor: pointer;
-    border-radius: 0;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    border-bottom: 4px solid transparent;
-    margin-bottom: -4px;
-    position: relative;
-}
-
-.tab-button:hover {
-    background-color: #c0c0c0;
-    border-bottom: 4px solid rgba(255, 215, 0, 0.5);
-    transform: none;
-    box-shadow: none;
+.tab-button:hover::after {
+    height: 50%;
 }
 
 .tab-button.active {
-    background-color: #ffd700;
-    border-bottom: 4px solid #ffd700;
-    color: #1a1a1a;
+    background-color: #c9c9c9;
+    color: var(--black);
 }
 
-.tab-content {
-    display: none;
-    background-color: #e8e8e8;
-    position: relative;
-    z-index: 5;
+.tab-button.active::after {
+    height: 50%;
+    background-color: #e6c200;
 }
-
-.tab-content.active {
-    display: block;
 }

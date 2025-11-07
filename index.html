@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!-- Safari SharedArrayBuffer -->
-    <script src="https://milandahal213.github.io/safari-sab.js"></script>
+    <script src="./safari-sab.js"></script>
     
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
@@ -17,9 +17,11 @@
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
     
-    <!-- my CSS 
-    <link rel="stylesheet" href="instr_styles.css">-->
-    <link rel="stylesheet" href="https://milandahal213.github.io/main_styles.css">
+    <!-- Koulen Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./main_styles.css">
     
     <script>/*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
         /*! mini-coi - Andrea Giammarchi and contributors, licensed under MIT */
@@ -50,12 +52,8 @@
           }
         })(self);
     </script>
-    
-    
 </head>
 <body>
-
-
     <div class="tab-container">
         <div class="tab-buttons">
             <button class="tab-button active" onclick="showTab('starters')">Python Starters</button>
@@ -70,8 +68,6 @@
         </div>
         
         <!-- Tab Contents -->
-
-        
         <div id="starters" class="tab-content active">
             <iframe src="./1_starters.html"></iframe>
         </div>
@@ -112,9 +108,6 @@
     <script src="./scripts.js"></script>
     
     <script>
-        // Load breadcrumbs
-
-        
         // Tab switching function
         function showTab(tabName) {
             // Hide all tabs
