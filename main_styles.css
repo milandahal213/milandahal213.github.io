@@ -667,3 +667,69 @@ button[id^="channel_connect"],
 button[id^="sync"] {
     transform: none !important;
 }
+
+
+/* ============================================
+   CHANNEL TABLE SPECIFIC STYLING
+   ============================================ */
+
+/* Target tables inside the channel container */
+#all_things_channels table {
+    background-color: transparent;
+    box-shadow: none;
+    margin: 10px 0;
+    border: none;
+}
+
+/* Remove default table cell styling for channel table */
+#all_things_channels td {
+    padding: 8px 10px;
+    border: none;
+    vertical-align: middle;
+}
+
+/* Style the "channel" text label */
+#all_things_channels td:nth-child(3) {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Style the equals sign */
+#all_things_channels td:nth-child(5) {
+    font-weight: 600;
+    color: #666;
+}
+
+/* Style the channel value display */
+#all_things_channels label[id^="channelValue"] {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Style the topic input field */
+#all_things_channels input[id^="topic"] {
+    color: #0000FF !important;
+    border: 2px solid #d4d4d4;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+/* Style the payload input field */
+#all_things_channels input[id^="payload"] {
+    border: 2px solid #d4d4d4;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+/* Keep the live indicator circle as-is */
+div[id^="live"] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
