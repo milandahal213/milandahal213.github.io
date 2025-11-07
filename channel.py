@@ -73,11 +73,11 @@ class CEEO_Channel():
         window.console.log(f"Button text: {self.c_btn.innerText}")
         window.console.log(f"Socket is: {self.socket}")
         
-        if self.c_btn.innerText == 'connect':
+        if self.c_btn.innerText == 'CONNECT':
             self.setupSocket()
-            self.c_btn.innerText = 'disconnect'
+            self.c_btn.innerText = 'DISCONNECT'
         else:
-            self.c_btn.innerText = 'connect'
+            self.c_btn.innerText = 'CONNECT'
             self.close()
 
 
