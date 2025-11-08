@@ -637,7 +637,7 @@ div[id^="live"] {
 }
 
 /* ============================================
-   PYSCRIPT TERMINAL - REMOVE SCROLLBAR
+   PYSCRIPT TERMINAL - REMOVE ALL SCROLLBARS
    ============================================ */
 py-terminal,
 .py-terminal {
@@ -650,18 +650,30 @@ py-terminal,
     max-width: 80%;
     margin: 0 auto;
     border: 20px solid #e8e8e8;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 /* Hide scrollbar for the terminal content */
 py-terminal::-webkit-scrollbar,
-.py-terminal::-webkit-scrollbar {
-    display: none;
+.py-terminal::-webkit-scrollbar,
+py-terminal *::-webkit-scrollbar,
+.py-terminal *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
-py-terminal {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+py-terminal,
+.py-terminal,
+py-terminal * {
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;  /* Firefox */
+}
+
+/* Target the internal terminal elements */
+py-terminal > *,
+.py-terminal > * {
+    overflow: hidden !important;
 }
 
 /* ============================================
