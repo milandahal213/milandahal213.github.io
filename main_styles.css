@@ -615,9 +615,8 @@ div[id^="live"] {
    CHANNEL BUTTONS
    ============================================ */
 .channel-btn {
-    width: 100%;
     display: inline-block;
-    padding: 0.5em 1em; /* Adjust padding as needed */
+    padding: 0.5em 1.5em; /* Increased horizontal padding */
     white-space: nowrap;
     border: none;
     border-radius: 8px;
@@ -630,6 +629,8 @@ div[id^="live"] {
     letter-spacing: 0.5px;
     margin: 0;
     min-width: 90px;
+    text-align: center;
+    width: auto; /* Changed from 100% to auto */
 }
 
 .connect-btn {
@@ -916,13 +917,7 @@ iframe {
         padding: 8px;
     }
     
-    .channel-btn {
-        display: inline-block;
-        padding: 0.5em 1em; /* Adjust padding as needed */
-        white-space: nowrap;
-        font-size: 12px;
-        min-width: 90px;
-    }
+
     
     .channel-input {
         padding: 12px;
