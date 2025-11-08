@@ -616,10 +616,12 @@ div[id^="live"] {
    ============================================ */
 .channel-btn {
     width: 100%;
-    padding: 15px 25px;
+    display: inline-block;
+    padding: 0.5em 1em; /* Adjust padding as needed */
+    white-space: nowrap;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
@@ -627,6 +629,7 @@ div[id^="live"] {
     box-sizing: border-box;
     letter-spacing: 0.5px;
     margin: 0;
+    min-width: 90px;
 }
 
 .connect-btn {
@@ -914,8 +917,11 @@ iframe {
     }
     
     .channel-btn {
-        padding: 12px 20px;
-        font-size: 14px;
+        display: inline-block;
+        padding: 0.5em 1em; /* Adjust padding as needed */
+        white-space: nowrap;
+        font-size: 12px;
+        min-width: 90px;
     }
     
     .channel-input {
