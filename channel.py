@@ -23,22 +23,30 @@ def iscoroutinefunction(obj):
 
     return inspect.iscoroutinefunction(obj)
     
-ChannelHTML = '''
-<table>    
-  <tr>
-    <td><button class="new" id = 'channel_connect{num}'>connect</button></td>
-    <td><div id = 'live{num}' style="background-color: red; width: 10px; height: 10px; border-radius: 5px; display: inline-block;"></div> </td>
-    <td>channel </td>
-    <td><input id = 'topic{num}' maxlength = 50 type='text' value = {dtopic} style = 'color:#0000FF'></td>
-    <td> = </td>
-    <td style="width: 100px; text-align: center"><label id = "channelValue{num}">0</label></td>
-    <td><input id = 'payload{num}' maxlength = 50 type='text' value = 'send this'></td>
-    <td><button id = "send{num}">Send</button></td>
-  </tr>
-</table>
- <div style = 'color:#0000FF; width: 500px' id = "activity{num}"></div>
-'''
 
+ChannelHTML = '''
+<table class="channel-table">    
+  <tr>
+    <td class="btn-cell"><button class="channel-btn connect-btn" id='channel_connect{num}'>Connect</button></td>
+    <td class="status-cell"><div id='live{num}' class="status-indicator status-red"></div></td>
+    <td class="topic-cell" colspan="4"><input id='topic{num}' class="channel-input topic-input" maxlength="50" type='text' value='{dtopic}'></td>
+  </tr>
+  <tr>
+    <td colspan="6" class="message-cell">
+      <div class="message-header">Received Message</div>
+      <div id="channelValue{num}" class="message-content">0</div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" class="payload-cell"><input id='payload{num}' class="channel-input payload-input" maxlength="50" type='text' value='send this'></td>
+    <td colspan="2" class="send-cell"><button class="channel-btn send-btn" id="send{num}">Send</button></td>
+  </tr>
+  <tr>
+    <td colspan="6" class="activity-cell">
+      <div class="activity-log" id="activity{num}"></div>
+    </td>
+  </tr>
+</table>'''
 class CEEO_Channel():
     def __init__(self, channel, user, project, divName = 'all_things_channels', suffix='_test', default_topic = "''"):
         self.filter = None

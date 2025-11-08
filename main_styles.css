@@ -323,9 +323,9 @@ em {
 }
 
 /* ============================================
-   TABLES
+   TABLES - STYLED TABLE CLASS
    ============================================ */
-table {
+table.styled-table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
@@ -334,7 +334,7 @@ table {
     margin: 20px 0;
 }
 
-th {
+table.styled-table th {
     background-color: #1a1a1a;
     color: white;
     padding: 15px;
@@ -345,20 +345,20 @@ th {
     letter-spacing: 1px;
 }
 
-td {
+table.styled-table td {
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
 }
 
-tr:last-child td {
+table.styled-table tr:last-child td {
     border-bottom: none;
 }
 
-tr:hover {
+table.styled-table tr:hover {
     background-color: #f9f9f9;
 }
 
-.task-num {
+table.styled-table .task-num {
     color: #ffd700;
     font-weight: 700;
     width: 10%;
@@ -410,7 +410,7 @@ pre {
 }
 
 /* ============================================
-   BUTTONS
+   BUTTONS - DEFAULT STYLES
    ============================================ */
 button {
     padding: 12px 24px;
@@ -438,7 +438,7 @@ button:active {
 }
 
 /* ============================================
-   FORM ELEMENTS
+   FORM ELEMENTS - DEFAULT STYLES
    ============================================ */
 input[type="text"] {
     padding: 10px 15px;
@@ -517,7 +517,7 @@ label {
 }
 
 /* ============================================
-   CHANNEL & HUB INTERFACE
+   CHANNEL & HUB INTERFACE (Legacy)
    ============================================ */
 #all_things_channels,
 #hub1,
@@ -546,94 +546,221 @@ div[id^="live"] {
 }
 
 /* ============================================
-   CHANNEL CONTAINER FIX
+   CHANNEL CARD STYLES (New)
    ============================================ */
-
-.channel-container {
-    margin: 10px 0;
-    padding: 15px;
-    background-color: white;
+.channel-card {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #d4d4d4;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid #ffd700;
-    max-width: 100%;
+    border-radius: 12px;
+    max-width: 80%;
     box-sizing: border-box;
 }
 
-.channel-container table {
+.channel-table {
     width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
     background-color: transparent;
-    box-shadow: none;
-    border: none;
-    margin: 10px 0;
-    border-collapse: separate;
-    border-spacing: 8px 0;
-}
-
-.channel-container td {
-    padding: 4px;
-    border: none;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.channel-container button {
-    padding: 8px 16px;
-    font-size: 11px;
-    border-radius: 8px;
-    white-space: nowrap;
-    font-weight: 600;
     margin: 0;
 }
 
-.channel-container input[type="text"] {
-    padding: 6px 10px;
-    border: 2px solid #d4d4d4;
-    border-radius: 6px;
-    font-size: 12px;
-    min-width: 80px;
+.channel-table td {
+    padding: 10px;
+    border: none;
+    vertical-align: middle;
 }
 
-.channel-container label {
-    padding: 6px 10px;
+/* Button cell */
+.btn-cell {
+    width: 20%;
+}
+
+/* Status indicator cell */
+.status-cell {
+    width: 5%;
+    text-align: center;
+}
+
+/* Topic input cell */
+.topic-cell {
+    width: 75%;
+}
+
+/* Message cell */
+.message-cell {
+    padding: 10px !important;
     background-color: #f5f5f5;
-    border-radius: 6px;
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-    font-size: 12px;
+    border-radius: 8px;
+}
+
+/* Activity cell */
+.activity-cell {
+    padding: 0 !important;
+}
+
+/* Payload cell */
+.payload-cell {
+    width: 65%;
+}
+
+/* Send button cell */
+.send-cell {
+    width: 35%;
+}
+
+/* ============================================
+   CHANNEL BUTTONS
+   ============================================ */
+.channel-btn {
+    width: 100%;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.connect-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.connect-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.connect-btn:active {
+    background-color: #3d8b40;
+    transform: translateY(0);
+}
+
+/* Disconnect state */
+.connect-btn.disconnected {
+    background-color: #7a0095;
+}
+
+.connect-btn.disconnected:hover {
+    background-color: #6a0080;
+}
+
+.send-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.send-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.send-btn:active {
+    background-color: #3d8b40;
+    transform: translateY(0);
+}
+
+/* ============================================
+   STATUS INDICATOR
+   ============================================ */
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     display: inline-block;
 }
 
-.channel-container > div {
-    width: 100% !important;
-    max-width: 100%;
+.status-red {
+    background-color: #f44336;
+}
+
+.status-green {
+    background-color: #4CAF50;
+}
+
+.status-yellow {
+    background-color: #ffd700;
+}
+
+/* ============================================
+   CHANNEL INPUTS
+   ============================================ */
+.channel-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.channel-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.topic-input {
+    color: #0000FF;
+    font-weight: 500;
+}
+
+.payload-input {
+    color: #333;
+}
+
+/* ============================================
+   MESSAGE DISPLAY
+   ============================================ */
+.message-header {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.message-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 60px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    color: #333;
     word-wrap: break-word;
-    margin-top: 10px;
-    font-size: 11px;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
 }
 
-/* Responsive: stack when too narrow */
-@media (max-width: 1400px) {
-    .channel-container table {
-        display: block;
-    }
-    
-    .channel-container tr {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .channel-container td {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .channel-container button,
-    .channel-container input[type="text"] {
-        width: 100%;
-    }
+/* ============================================
+   ACTIVITY LOG
+   ============================================ */
+.activity-log {
+    color: #AA00FF;
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 10px;
+    word-wrap: break-word;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.activity-log:empty {
+    display: none;
 }
 
 /* ============================================
@@ -650,6 +777,7 @@ py-terminal,
     max-width: 80%;
     margin: 0 auto;
     border: 20px solid #e8e8e8;
+    border-radius: 12px;
     overflow: hidden !important;
 }
 
@@ -761,14 +889,6 @@ iframe {
     .tab-button.active {
         background-color: var(--yellow);
     }
-    
-    table {
-        font-size: 12px;
-    }
-    
-    th, td {
-        padding: 10px;
-    }
 
     .tooltip .tooltip-text {
         width: 280px;
@@ -782,6 +902,31 @@ iframe {
         max-width: 100%;
         border: 10px solid #e8e8e8;
     }
+    
+    /* Channel card responsive */
+    .channel-card {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .channel-table td {
+        padding: 8px;
+    }
+    
+    .channel-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .channel-input {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .message-content {
+        padding: 12px;
+        min-height: 50px;
+    }
 }
 
 /* Extra small screens */
@@ -789,5 +934,34 @@ iframe {
     .code-list-item {
         width: 100%;
         max-width: 350px;
+    }
+    
+    .channel-table {
+        display: block;
+    }
+    
+    .channel-table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .channel-table td {
+        display: block;
+        width: 100% !important;
+    }
+    
+    .btn-cell,
+    .status-cell,
+    .topic-cell,
+    .payload-cell,
+    .send-cell,
+    .activity-cell {
+        width: 100% !important;
+    }
+    
+    .status-cell {
+        text-align: left;
     }
 }

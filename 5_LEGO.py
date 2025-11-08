@@ -141,9 +141,9 @@ async def setup_elements():
     try:
         document.getElementById('title_2').innerText = ''
         _e1 = document.getElementById('var_1')
-        _e1.value = 'element1'
+        _e1.value = 'EL1'
         _e2 = document.getElementById('var_2')
-        _e2.value = 'element2'
+        _e2.value = 'EL2'
     except Exception as e:
         window.console.log('Element access error:', e)
 
@@ -152,12 +152,17 @@ asyncio.create_task(setup_elements())
 
 @when('change','#var_1')
 def rename():
+    _e1 = document.getElementById('var_1')
     _e1.value = _e1.value.replace(' ','_')
-    exec(f"{_e1.value} = element1 ")
-@when('change','#var_2')
-def rename():
-    _e2.value = _e2.value.replace(' ','_')
-    exec(f"{_e2.value} = element2 ")
+    new_name = _e1.value
+    globals()[new_name] = element1
 
+
+@when('change','#var_2')
+def rename2():
+    _e2 = document.getElementById('var_2')
+    _e2.value = _e2.value.replace(' ','_')
+    new_name = _e2.value
+    globals()[new_name] = element2
 
 
