@@ -1,5 +1,4 @@
 # make sure you have <div id='all_things_channels'></div> on your index.html
-
 from pyscript import document, window, WebSocket
 import asyncio
 import json
