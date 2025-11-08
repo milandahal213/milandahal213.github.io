@@ -25,21 +25,19 @@ def iscoroutinefunction(obj):
     return inspect.iscoroutinefunction(obj)
     
 ChannelHTML = '''
-<div class="channel-wrapper">
-<table class="channel-table">    
+<table>    
   <tr>
-    <td><button class="channel-connect-btn" id='channel_connect{num}'>CONNECT</button></td>
-    <td><div id='live{num}' class="channel-status-dot" style="background-color: red; width: 10px; height: 10px; border-radius: 5px; display: inline-block;"></div></td>
-    <td class="channel-label">channel</td>
-    <td><input id='topic{num}' class="channel-topic-input" maxlength=50 type='text' value={dtopic} style='color:#0000FF'></td>
-    <td class="channel-equals">=</td>
-    <td><label id="channelValue{num}" class="channel-value-display">0</label></td>
-    <td><input id='payload{num}' class="channel-payload-input" maxlength=50 type='text' value='send this'></td>
-    <td><button id="send{num}" class="channel-send-btn">SEND</button></td>
+    <td><button class="new" id = 'channel_connect{num}'>connect</button></td>
+    <td><div id = 'live{num}' style="background-color: red; width: 10px; height: 10px; border-radius: 5px; display: inline-block;"></div> </td>
+    <td>channel </td>
+    <td><input id = 'topic{num}' maxlength = 50 type='text' value = {dtopic} style = 'color:#0000FF'></td>
+    <td> = </td>
+    <td style="width: 100px; text-align: center"><label id = "channelValue{num}">0</label></td>
+    <td><input id = 'payload{num}' maxlength = 50 type='text' value = 'send this'></td>
+    <td><button id = "send{num}">Send</button></td>
   </tr>
 </table>
-<div class="channel-activity" style='color:#0000FF; width: 800px' id="activity{num}"></div>
-</div>
+ <div style = 'color:#0000FF; width: 800px' id = "activity{num}"></div>
 '''
 
 class CEEO_Channel():

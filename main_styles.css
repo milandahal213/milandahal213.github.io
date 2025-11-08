@@ -546,111 +546,98 @@ div[id^="live"] {
 }
 
 /* ============================================
-   CHANNEL TABLE - RESPONSIVE STACKING
+   CHANNEL CONTAINER FIX
    ============================================ */
 
-.channel-wrapper {
-    margin: 5px 0;
+.channel-container {
+    margin: 10px 0;
     padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid #ffd700;
     max-width: 100%;
     box-sizing: border-box;
 }
 
-.channel-table {
+.channel-container table {
+    width: 100%;
     background-color: transparent;
     box-shadow: none;
-    margin: 10px 0;
     border: none;
-    width: 100%;
-    display: table;
+    margin: 10px 0;
+    border-collapse: separate;
+    border-spacing: 8px 0;
 }
 
-.channel-table tr {
-    display: table-row;
-}
-
-.channel-table td {
-    padding: 4px 6px;
+.channel-container td {
+    padding: 4px;
     border: none;
     vertical-align: middle;
     white-space: nowrap;
-    display: table-cell;
 }
 
-.channel-connect-btn,
-.channel-send-btn {
+.channel-container button {
     padding: 8px 16px;
     font-size: 11px;
     border-radius: 8px;
     white-space: nowrap;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    margin: 0;
 }
 
-.channel-topic-input,
-.channel-payload-input {
-    width: 120px;
+.channel-container input[type="text"] {
     padding: 6px 10px;
     border: 2px solid #d4d4d4;
     border-radius: 6px;
     font-size: 12px;
+    min-width: 80px;
 }
 
-.channel-value-display {
+.channel-container label {
     padding: 6px 10px;
     background-color: #f5f5f5;
     border-radius: 6px;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
     font-size: 12px;
     display: inline-block;
-    min-width: 40px;
 }
 
-.channel-activity {
+.channel-container > div {
     width: 100% !important;
     max-width: 100%;
     word-wrap: break-word;
     margin-top: 10px;
+    font-size: 11px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
 }
 
-/* Stack vertically when window gets smaller */
-@media (max-width: 1200px) {
-    .channel-table {
+/* Responsive: stack when too narrow */
+@media (max-width: 1400px) {
+    .channel-container table {
         display: block;
     }
     
-    .channel-table tr {
+    .channel-container tr {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
     
-    .channel-table td {
+    .channel-container td {
         display: flex;
         align-items: center;
         gap: 10px;
         width: 100%;
-        padding: 6px 0;
     }
     
-    .channel-connect-btn,
-    .channel-send-btn {
+    .channel-container button,
+    .channel-container input[type="text"] {
         width: 100%;
-    }
-    
-    .channel-topic-input,
-    .channel-payload-input {
-        flex: 1;
-        width: auto;
-    }
-    
-    .channel-value-display {
-        flex: 1;
     }
 }
 
 /* ============================================
-   PYSCRIPT TERMINAL
+   PYSCRIPT TERMINAL - REMOVE SCROLLBAR
    ============================================ */
 py-terminal,
 .py-terminal {
@@ -663,6 +650,18 @@ py-terminal,
     max-width: 80%;
     margin: 0 auto;
     border: 20px solid #e8e8e8;
+    overflow: hidden;
+}
+
+/* Hide scrollbar for the terminal content */
+py-terminal::-webkit-scrollbar,
+.py-terminal::-webkit-scrollbar {
+    display: none;
+}
+
+py-terminal {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 /* ============================================
