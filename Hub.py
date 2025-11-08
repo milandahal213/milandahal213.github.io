@@ -10,7 +10,7 @@ print("I worked")
 HubHTML = '''   
 <table>
   <tr>
-    <td><input id = 'var{num}' maxlength = 20 type='text' value = "w" style='width: 60px; border: none; color: #0000FF'> = </td>
+    <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 60px; border: none; color: #0000FF'> = </td>
     <td id = 'name{num}'>Sensor </td>
     <td><button id = "sync{num}">Connect</button></td>
     <td><select id="dropdown{num}"></select></td>
