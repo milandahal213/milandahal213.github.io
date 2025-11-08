@@ -36,7 +36,7 @@ ChannelHTML = '''
     <td><button id = "send{num}">Send</button></td>
   </tr>
 </table>
- <div style = 'color:#0000FF; width: 800px' id = "activity{num}"></div>
+ <div style = 'color:#0000FF; width: 500px' id = "activity{num}"></div>
 '''
 
 class CEEO_Channel():

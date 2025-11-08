@@ -8,7 +8,6 @@ from pyscript.js_modules import ble
 print("I worked")
 
 HubHTML = '''   
-<h3 id='title{num}'>Element Setup</h3>
 <table>
   <tr>
     <td><input id = 'var{num}' maxlength = 20 type='text' value = "w" style='width: 60px; border: none; color: #0000FF'> = </td>
@@ -19,7 +18,7 @@ HubHTML = '''
     <td> </td>
   </tr>
 </table>
-<div style = 'color:#0000FF; width: 800px; font-size: 9px' id = "activity{num}"></div>
+<div style = 'color:#0000FF; width: 500px; font-size: 9px' id = "activity{num}"></div>
 '''
 
 import SpikePrime as hub0
