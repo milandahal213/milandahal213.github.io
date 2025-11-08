@@ -76,7 +76,6 @@ p {
     margin: 20px 0;
 }
 
-
 .paragraph-11{
     -webkit-text-size-adjust: 100%;
     --brown: #333129;
@@ -119,6 +118,73 @@ p {
 em {
     color: #666;
     font-style: italic;
+}
+
+.list-5{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    font-family: Droid Sans,sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    list-style: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.code-list-item{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    line-height: 1.4;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #00000014;
+    width: 400px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 20px;
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    border-radius: 11px;
+}
+
+.paragraph-10{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    font-family: Droid Sans,sans-serif;
+    box-sizing: border-box;
+    margin: 0 10px;
+    padding: 4px 10px 10px;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 /* ============================================
@@ -479,107 +545,108 @@ div[id^="live"] {
     margin: 0 5px;
 }
 
-
 /* ============================================
-   CHANNEL TABLE SPECIFIC STYLING - RESPONSIVE
+   CHANNEL TABLE - RESPONSIVE STACKING
    ============================================ */
 
-/* Target tables inside the channel container */
-#all_things_channels table {
+.channel-wrapper {
+    margin: 5px 0;
+    padding: 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.channel-table {
     background-color: transparent;
     box-shadow: none;
     margin: 10px 0;
     border: none;
     width: 100%;
-    table-layout: auto;
+    display: table;
 }
 
-/* Remove default table cell styling for channel table */
-#all_things_channels td {
-    padding: 5px 8px;
+.channel-table tr {
+    display: table-row;
+}
+
+.channel-table td {
+    padding: 4px 6px;
     border: none;
     vertical-align: middle;
     white-space: nowrap;
+    display: table-cell;
 }
 
-/* Style the "channel" text label */
-#all_things_channels td:nth-child(3) {
-    font-weight: 600;
-    color: #1a1a1a;
-    font-size: 12px;
-}
-
-/* Style the equals sign */
-#all_things_channels td:nth-child(5) {
-    font-weight: 600;
-    color: #666;
-    padding: 5px 4px;
-    font-size: 14px;
-}
-
-/* Style the channel value display */
-#all_things_channels label[id^="channelValue"] {
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-    background-color: #f5f5f5;
-    padding: 6px 10px;
-    border-radius: 6px;
-    display: inline-block;
-    font-size: 12px;
-    min-width: 40px;
-}
-
-/* Style the topic input field */
-#all_things_channels input[id^="topic"] {
-    color: #0000FF !important;
-    border: 2px solid #d4d4d4;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-    font-size: 12px;
-    width: 120px;
-    max-width: 100%;
-}
-
-/* Style the payload input field */
-#all_things_channels input[id^="payload"] {
-    border: 2px solid #d4d4d4;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 12px;
-    width: 100px;
-    max-width: 100%;
-}
-
-/* Channel specific buttons - smaller and more rounded */
-#all_things_channels button {
+.channel-connect-btn,
+.channel-send-btn {
     padding: 8px 16px;
     font-size: 11px;
     border-radius: 8px;
     white-space: nowrap;
-    margin: 2px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-/* Keep the live indicator circle smaller */
-#all_things_channels div[id^="live"] {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+.channel-topic-input,
+.channel-payload-input {
+    width: 120px;
+    padding: 6px 10px;
+    border: 2px solid #d4d4d4;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.channel-value-display {
+    padding: 6px 10px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
     display: inline-block;
-    margin: 0 3px;
+    min-width: 40px;
 }
 
-/* Make the whole channel container more compact */
-#all_things_channels {
-    margin: 5px 0;
-    padding: 15px;
+.channel-activity {
+    width: 100% !important;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-top: 10px;
 }
 
-/* Title above the table */
-#all_things_channels h3 {
-    font-size: 18px;
-    margin: 5px 0 10px 0;
+/* Stack vertically when window gets smaller */
+@media (max-width: 1200px) {
+    .channel-table {
+        display: block;
+    }
+    
+    .channel-table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .channel-table td {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 6px 0;
+    }
+    
+    .channel-connect-btn,
+    .channel-send-btn {
+        width: 100%;
+    }
+    
+    .channel-topic-input,
+    .channel-payload-input {
+        flex: 1;
+        width: auto;
+    }
+    
+    .channel-value-display {
+        flex: 1;
+    }
 }
 
 /* ============================================
@@ -635,7 +702,7 @@ iframe {
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - MAIN LAYOUT
    ============================================ */
 @media (max-width: 1024px) {
     #container {
@@ -652,166 +719,6 @@ iframe {
         width: 100%;
         height: 5px;
         cursor: row-resize;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-    
-    #left {
-        padding: 10px;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
-    }
-    
-    .tab-button {
-        width: 100%;
-    }
-
-    .tab-button::after {
-        display: none;
-    }
-
-    .tab-button.active {
-        background-color: var(--yellow);
-    }
-    
-    table {
-        font-size: 12px;
-    }
-    
-    th, td {
-        padding: 10px;
-    }
-
-    .tooltip .tooltip-text {
-        width: 280px;
-        font-size: 0.9em;
-        padding: 15px;
-    }
-}
-
-.list-5{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    font-family: Droid Sans,sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    box-sizing: border-box;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0;
-    list-style: none;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.code-list-item{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    line-height: 1.4;
-    list-style: none;
-    box-sizing: border-box;
-    font-size: 16px;
-    background-color: #00000014;
-    width: 400px;
-    margin-bottom: 10px;
-    padding: 10px 10px 10px 20px;
-    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    border-radius: 11px;
-}
-
-.paragraph-10{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    font-family: Droid Sans,sans-serif;
-    box-sizing: border-box;
-    margin: 0 10px;
-    padding: 4px 10px 10px;
-    font-size: 16px;
-    line-height: 1.4;
-}
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-@media (max-width: 1024px) {
-    #container {
-        flex-direction: column;
-    }
-    
-    #left,
-    #right {
-        flex: none;
-        width: 100%;
-    }
-    
-    #divider {
-        width: 100%;
-        height: 5px;
-        cursor: row-resize;
-    }
-    
-    /* Stack channel table on smaller screens */
-    #all_things_channels table {
-        display: block;
-    }
-    
-    #all_things_channels tr {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 10px;
-    }
-    
-    #all_things_channels td {
-        display: block;
-        padding: 8px;
-    }
-    
-    /* Make inputs full width on mobile */
-    #all_things_channels input[id^="topic"],
-    #all_things_channels input[id^="payload"] {
-        width: 100%;
-    }
-    
-    /* Stack buttons vertically */
-    #all_things_channels button {
-        width: 100%;
-        margin: 5px 0;
     }
 }
 
@@ -863,5 +770,13 @@ iframe {
     .py-terminal {
         max-width: 100%;
         border: 10px solid #e8e8e8;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .code-list-item {
+        width: 100%;
+        max-width: 350px;
     }
 }
