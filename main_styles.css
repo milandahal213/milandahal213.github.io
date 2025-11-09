@@ -76,6 +76,7 @@ p {
     margin: 20px 0;
 }
 
+
 .paragraph-11{
     -webkit-text-size-adjust: 100%;
     --brown: #333129;
@@ -120,75 +121,8 @@ em {
     font-style: italic;
 }
 
-.list-5{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    font-family: Droid Sans,sans-serif;
-    font-size: 14px;
-    line-height: 1.4;
-    box-sizing: border-box;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 0;
-    list-style: none;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.code-list-item{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    line-height: 1.4;
-    list-style: none;
-    box-sizing: border-box;
-    font-size: 16px;
-    background-color: #00000014;
-    width: 400px;
-    margin-bottom: 10px;
-    padding: 10px 10px 10px 20px;
-    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-    border-radius: 11px;
-}
-
-.paragraph-10{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    font-family: Droid Sans,sans-serif;
-    box-sizing: border-box;
-    margin: 0 10px;
-    padding: 4px 10px 10px;
-    font-size: 16px;
-    line-height: 1.4;
-}
-
 /* ============================================
-   CONTAINER & LAYOUT
+   CONTAINER & LAYOUT - FIXED 30% LEFT DIV
    ============================================ */
 #container {
     display: flex;
@@ -198,13 +132,13 @@ em {
 }
 
 #left {
-    flex: 1;
+    flex: 0 0 30%;
+    width: 30%;
     overflow: auto;
     background-color: #e8e8e8;
     padding: 40px;
     position: relative;
     z-index: 1;
-    min-width: 300px;
 }
 
 #right {
@@ -214,14 +148,14 @@ em {
     background-color: #e8e8e8;
     position: relative;
     z-index: 1;
-    min-width: 400px;
 }
 
 #divider {
     width: 5px;
     background-color: #999;
-    cursor: col-resize;
+    cursor: default;
     z-index: 2;
+    pointer-events: none;
 }
 
 /* ============================================
@@ -325,9 +259,9 @@ em {
 }
 
 /* ============================================
-   TABLES - STYLED TABLE CLASS
+   TABLES
    ============================================ */
-table.styled-table {
+table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
@@ -336,7 +270,7 @@ table.styled-table {
     margin: 20px 0;
 }
 
-table.styled-table th {
+th {
     background-color: #1a1a1a;
     color: white;
     padding: 15px;
@@ -347,20 +281,20 @@ table.styled-table th {
     letter-spacing: 1px;
 }
 
-table.styled-table td {
+td {
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
 }
 
-table.styled-table tr:last-child td {
+tr:last-child td {
     border-bottom: none;
 }
 
-table.styled-table tr:hover {
+tr:hover {
     background-color: #f9f9f9;
 }
 
-table.styled-table .task-num {
+.task-num {
     color: #ffd700;
     font-weight: 700;
     width: 10%;
@@ -412,7 +346,7 @@ pre {
 }
 
 /* ============================================
-   BUTTONS - DEFAULT STYLES
+   BUTTONS
    ============================================ */
 button {
     padding: 12px 24px;
@@ -440,7 +374,7 @@ button:active {
 }
 
 /* ============================================
-   FORM ELEMENTS - DEFAULT STYLES
+   FORM ELEMENTS
    ============================================ */
 input[type="text"] {
     padding: 10px 15px;
@@ -519,7 +453,158 @@ label {
 }
 
 /* ============================================
-   CHANNEL & HUB INTERFACE (Legacy)
+   HUB/ELEMENT INTERFACE - NEW DESIGN
+   ============================================ */
+.hub-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+.hub-title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.hub-content {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.hub-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.hub-input {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    width: 150px;
+    outline: none;
+}
+
+.hub-input:focus {
+    border-color: #667eea;
+}
+
+.hub-device-name {
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    flex: 0.4;
+    min-width: 120px;
+}
+
+.hub-connect-btn {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.hub-connect-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+}
+
+.hub-connect-btn.connected {
+    background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+}
+
+.hub-sensor-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.hub-dropdown {
+    flex: 0.6;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    min-width: 150px;
+}
+
+.hub-dropdown:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.hub-value-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    flex: 1;
+    min-width: 200px;
+}
+
+.hub-value-label {
+    color: #666;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hub-value-content {
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.hub-activity-log {
+    margin-top: 15px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 11px;
+    color: #666;
+    max-height: 100px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+/* ============================================
+   CHANNEL & HUB INTERFACE - OLD DESIGN (LEGACY)
    ============================================ */
 #all_things_channels,
 #hub1,
@@ -547,257 +632,111 @@ div[id^="live"] {
     margin: 0 5px;
 }
 
+
 /* ============================================
-   CHANNEL CARD STYLES (New)
+   CHANNEL TABLE SPECIFIC STYLING - RESPONSIVE
    ============================================ */
-.channel-card {
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #d4d4d4;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-left: 5px solid #ffd700;
-    border-radius: 12px;
-    max-width: fit-content;
-    box-sizing: border-box;
-    min-width: 300px;
-}
 
-.channel-table {
-    display: table;
-    table-layout: fixed;
-    border-collapse: collapse;
+/* Target tables inside the channel container */
+#all_things_channels table {
     background-color: transparent;
-    margin: 0;
-    min-width: 300px;
+    box-shadow: none;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    table-layout: auto;
 }
 
-.channel-table td {
-    padding: 2px !important;
+/* Remove default table cell styling for channel table */
+#all_things_channels td {
+    padding: 5px 8px;
     border: none;
     vertical-align: middle;
-}
-
-/* Header row - fixed layout */
-.header-row .btn-cell {
-    width: 25%;
-}
-
-.header-row .status-cell {
-    width: 8%;
-    text-align: center;
-}
-
-.header-row .topic-cell {
-    width: 67%;
-}
-
-/* Button cell */
-.btn-cell {
-    width: 25%;
-}
-
-/* Status indicator cell */
-.status-cell {
-    width: 8%;
-    text-align: center;
-}
-
-/* Topic input cell */
-.topic-cell {
-    width: 67%;
-}
-
-/* Message cell */
-.message-cell {
-    padding: 2px !important;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-}
-
-/* Activity cell */
-.activity-cell {
-    padding: 0 !important;
-}
-
-/* Payload cell */
-.payload-cell {
-    width: 67%;
-}
-
-/* Send button cell */
-.send-cell {
-    width: 33%;
-}
-
-/* ============================================
-   CHANNEL BUTTONS
-   ============================================ */
-.channel-btn {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
     white-space: nowrap;
-    border: none;
-    border-radius: 8px;
-    font-size: 12px;
+}
+
+/* Style the "channel" text label */
+#all_things_channels td:nth-child(3) {
     font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    letter-spacing: 0.5px;
-    margin: 0;
-    text-align: center;
+    color: #1a1a1a;
+    font-size: 12px;
 }
 
-.connect-btn {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.connect-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.connect-btn:active {
-    background-color: #3d8b40;
-    transform: translateY(0);
-}
-
-/* Disconnect state */
-.connect-btn.disconnected {
-    background-color: #7a0095;
-}
-
-.connect-btn.disconnected:hover {
-    background-color: #6a0080;
-}
-
-.send-btn {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.send-btn:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.send-btn:active {
-    background-color: #3d8b40;
-    transform: translateY(0);
-}
-
-/* ============================================
-   STATUS INDICATOR
-   ============================================ */
-.status-indicator {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-}
-
-.status-red {
-    background-color: #f44336;
-}
-
-.status-green {
-    background-color: #4CAF50;
-}
-
-.status-yellow {
-    background-color: #ffd700;
-}
-
-/* ============================================
-   CHANNEL INPUTS
-   ============================================ */
-.channel-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+/* Style the equals sign */
+#all_things_channels td:nth-child(5) {
+    font-weight: 600;
+    color: #666;
+    padding: 5px 4px;
     font-size: 14px;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.channel-input:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-}
-
-.topic-input {
-    color: #0000FF;
-    font-weight: 500;
-}
-
-.payload-input {
-    color: #333;
-}
-
-/* ============================================
-   MESSAGE DISPLAY
-   ============================================ */
-.message-header {
-    font-weight: 600;
+/* Style the channel value display */
+#all_things_channels label[id^="channelValue"] {
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    background-color: #f5f5f5;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: inline-block;
     font-size: 12px;
-    color: #333;
-    margin-bottom: 0; /* Changed from 10px */
+    min-width: 40px;
 }
 
-.message-content {
-    background-color: white;
-    padding: 5px;
+/* Style the topic input field */
+#all_things_channels input[id^="topic"] {
+    color: #0000FF !important;
+    border: 2px solid #d4d4d4;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
+    width: 120px;
+    max-width: 100%;
+}
+
+/* Style the payload input field */
+#all_things_channels input[id^="payload"] {
+    border: 2px solid #d4d4d4;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    width: 100px;
+    max-width: 100%;
+}
+
+/* Channel specific buttons - smaller and more rounded */
+#all_things_channels button {
+    padding: 8px 16px;
+    font-size: 11px;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 12px;
-    color: #333;
-    word-wrap: break-word;
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-}
-
-.message-content-inline {
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    font-size: 12px;
-    color: #333;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    white-space: nowrap;
+    margin: 2px;
     font-weight: 600;
-    display: inline;
-    margin-left: 8px;
-}
-/* ============================================
-   ACTIVITY LOG
-   ============================================ */
-.activity-log {
-    color: #AA00FF;
-    font-size: 12px;
-    margin-top: 12px;
-    padding: 10px;
-    word-wrap: break-word;
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-    max-height: 150px;
-    overflow-y: auto;
-    max-width: 300px;
+    letter-spacing: 0.5px;
 }
 
-.activity-log:empty {
-    display: none;
+/* Keep the live indicator circle smaller */
+#all_things_channels div[id^="live"] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+/* Make the whole channel container more compact */
+#all_things_channels {
+    margin: 5px 0;
+    padding: 15px;
+}
+
+/* Title above the table */
+#all_things_channels h3 {
+    font-size: 18px;
+    margin: 5px 0 10px 0;
 }
 
 /* ============================================
-   PYSCRIPT TERMINAL - REMOVE ALL SCROLLBARS
+   PYSCRIPT TERMINAL
    ============================================ */
 py-terminal,
 .py-terminal {
@@ -807,34 +746,9 @@ py-terminal,
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    max-width: 100%;
+    max-width: 80%;
     margin: 0 auto;
-    border: 20px solid #1a1a1a;
-    border-radius: 12px;
-    overflow: hidden !important;
-}
-
-/* Hide scrollbar for the terminal content */
-py-terminal::-webkit-scrollbar,
-.py-terminal::-webkit-scrollbar,
-py-terminal *::-webkit-scrollbar,
-.py-terminal *::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-py-terminal,
-.py-terminal,
-py-terminal * {
-    -ms-overflow-style: none !important;  /* IE and Edge */
-    scrollbar-width: none !important;  /* Firefox */
-}
-
-/* Target the internal terminal elements */
-py-terminal > *,
-.py-terminal > * {
-    overflow: hidden !important;
+    border: 20px solid #e8e8e8;
 }
 
 /* ============================================
@@ -873,35 +787,165 @@ iframe {
     display: none !important;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN - MAIN LAYOUT
-   ============================================ */
+.list-5{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    font-family: Droid Sans,sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0;
+    list-style: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
-/* Stack everything at the same breakpoint - 1024px */
+.code-list-item{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    line-height: 1.4;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #00000014;
+    width: 400px;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 20px;
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    border-radius: 11px;
+}
+
+.paragraph-10{
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    font-family: Droid Sans,sans-serif;
+    box-sizing: border-box;
+    margin: 0 10px;
+    padding: 4px 10px 10px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 @media (max-width: 1024px) {
-    /* Stack left and right panels */
     #container {
         flex-direction: column;
-        height: auto;
     }
     
     #left {
+        flex: none;
         width: 100%;
-        min-width: auto;
-        padding: 20px;
+        height: 30vh;
     }
     
     #right {
+        flex: none;
         width: 100%;
-        min-width: auto;
-        padding: 20px;
+        height: 70vh;
     }
     
     #divider {
-        display: none;
+        width: 100%;
+        height: 5px;
+        cursor: default;
     }
     
-    /* Stack tab buttons */
+    /* Stack channel table on smaller screens */
+    #all_things_channels table {
+        display: block;
+    }
+    
+    #all_things_channels tr {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    
+    #all_things_channels td {
+        display: block;
+        padding: 8px;
+    }
+    
+    /* Make inputs full width on mobile */
+    #all_things_channels input[id^="topic"],
+    #all_things_channels input[id^="payload"] {
+        width: 100%;
+    }
+    
+    /* Stack buttons vertically */
+    #all_things_channels button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Hub responsive design */
+    .hub-container {
+        padding: 20px;
+    }
+
+    .hub-row,
+    .hub-sensor-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hub-connect-btn {
+        width: 100%;
+    }
+    
+    .hub-input {
+        width: 100%;
+    }
+    
+    .hub-dropdown {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    #left {
+        padding: 10px;
+    }
+    
     .tab-buttons {
         flex-direction: column;
     }
@@ -918,24 +962,11 @@ iframe {
         background-color: var(--yellow);
     }
     
-    /* Channel card adjustments */
-    .channel-card {
-        margin: 20px auto;
-        min-width: 300px;
-        max-width: fit-content;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8em;
-    }
-
-    h2 {
-        font-size: 1.5em;
+    table {
+        font-size: 12px;
     }
     
-    #left {
+    th, td {
         padding: 10px;
     }
 
@@ -950,51 +981,5 @@ iframe {
     .py-terminal {
         max-width: 100%;
         border: 10px solid #e8e8e8;
-    }
-    
-    /* Channel card responsive */
-    .channel-card {
-        padding: 15px;
-        max-width: fit-content;
-        min-width: 280px;
-    }
-    
-    .channel-table {
-        min-width: 280px;
-    }
-    
-    .channel-table td {
-        padding: 8px;
-    }
-    
-    .channel-input {
-        padding: 10px;
-        font-size: 13px;
-    }
-    
-    .message-content {
-        padding: 2px;
-        font-size: 12px;
-    }
-    
-    .channel-btn {
-        padding: 10px 14px;
-        font-size: 11px;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-    .code-list-item {
-        width: 100%;
-        max-width: 350px;
-    }
-    
-    .channel-card {
-        min-width: 260px;
-    }
-    
-    .channel-table {
-        min-width: 260px;
     }
 }

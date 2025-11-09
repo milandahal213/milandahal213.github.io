@@ -25,6 +25,7 @@ def iscoroutinefunction(obj):
     
 
 ChannelHTML = '''
+<h4> Channel Setup </h4>
 <table class="channel-table">    
   <tr class="header-row">
     <td class="btn-cell"><button class="channel-btn connect-btn" id='channel_connect{num}'>Connect</button></td>
