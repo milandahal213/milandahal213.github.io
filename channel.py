@@ -33,8 +33,8 @@ ChannelHTML = '''
   </tr>
   <tr>
     <td colspan="6" class="message-cell">
-      <div class="message-header">Received Message</div>
-      <div id="channelValue{num}" class="message-content">0</div>
+<div class="message-header">Received Message: <span id="channelValue{num}" class="message-content-inline">0</span></div>
+      
     </td>
   </tr>
   <tr>

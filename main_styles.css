@@ -557,13 +557,12 @@ div[id^="live"] {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid #ffd700;
     border-radius: 12px;
-    max-width: 100%;
+    max-width: fit-content;
     box-sizing: border-box;
     min-width: 300px;
 }
 
 .channel-table {
-    width: 100%;
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
@@ -573,7 +572,7 @@ div[id^="live"] {
 }
 
 .channel-table td {
-    padding: 10px;
+    padding: 2px !important;
     border: none;
     vertical-align: middle;
 }
@@ -610,7 +609,7 @@ div[id^="live"] {
 
 /* Message cell */
 .message-cell {
-    padding: 15px !important;
+    padding: 2px !important;
     background-color: #f5f5f5;
     border-radius: 8px;
 }
@@ -749,30 +748,40 @@ div[id^="live"] {
    ============================================ */
 .message-header {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 12px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 0; /* Changed from 10px */
 }
 
 .message-content {
     background-color: white;
-    padding: 15px;
+    padding: 5px;
     border-radius: 8px;
-    min-height: 60px;
     border: 1px solid #ddd;
-    font-size: 15px;
+    font-size: 12px;
     color: #333;
     word-wrap: break-word;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
 }
 
+.message-content-inline {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    display: inline;
+    margin-left: 8px;
+}
 /* ============================================
    ACTIVITY LOG
    ============================================ */
 .activity-log {
     color: #AA00FF;
     font-size: 12px;
-    margin-top: 15px;
+    margin-top: 12px;
     padding: 10px;
     word-wrap: break-word;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
@@ -780,6 +789,7 @@ div[id^="live"] {
     border-radius: 4px;
     max-height: 150px;
     overflow-y: auto;
+    max-width: 300px;
 }
 
 .activity-log:empty {
@@ -797,9 +807,9 @@ py-terminal,
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
     font-size: 14px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
-    border: 20px solid #e8e8e8;
+    border: 20px solid #1a1a1a;
     border-radius: 12px;
     overflow: hidden !important;
 }
@@ -912,7 +922,7 @@ iframe {
     .channel-card {
         margin: 20px auto;
         min-width: 300px;
-        max-width: 600px;
+        max-width: fit-content;
     }
 }
 
@@ -945,7 +955,7 @@ iframe {
     /* Channel card responsive */
     .channel-card {
         padding: 15px;
-        max-width: 100%;
+        max-width: fit-content;
         min-width: 280px;
     }
     
@@ -963,9 +973,8 @@ iframe {
     }
     
     .message-content {
-        padding: 10px;
-        min-height: 50px;
-        font-size: 13px;
+        padding: 2px;
+        font-size: 12px;
     }
     
     .channel-btn {
