@@ -416,20 +416,19 @@ pre {
    ============================================ */
 button {
     padding: 12px 24px;
-    background-color: #7a0095;
+    background-color: #45a049;
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 10px;
     margin: 5px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.1px;
 }
 
 button:hover {
-    background-color: #007096;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -521,14 +520,31 @@ label {
 /* ============================================
    CHANNEL & HUB INTERFACE (Legacy)
    ============================================ */
-#all_things_channels,
-#hub1,
-#hub2 {
-    margin: 10px 0;
+#all_things_channels {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #d4d4d4;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid #ffd700;
+    border-radius: 12px;
+    max-width: fit-content;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+#hub1,
+#hub2 {
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-left: 5px solid #ffd700;
+    border-radius: 12px;
+    box-sizing: border-box;
+    min-width: 300px;
 }
 
 div[id^="activity"] {
@@ -997,4 +1013,31 @@ iframe {
     .channel-table {
         min-width: 260px;
     }
+}
+.drag-handle {
+  background: linear-gradient(135deg, #333129 0%, #4a4739 100%);
+  color: white;
+  padding: 8px 12px;
+  cursor: move;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  border-radius: 8px 8px 0 0;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-bottom: 3px solid #fcd700;
+}
+
+.drag-handle:hover {
+  background: linear-gradient(135deg, #4a4739 0%, #5c5545 100%);
+  border-bottom-color: #e6c200;
+}
+
+.drag-icon {
+  font-size: 16px;
+  letter-spacing: -2px;
+  color: #fcd700;
 }

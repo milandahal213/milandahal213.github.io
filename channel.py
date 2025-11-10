@@ -25,6 +25,9 @@ def iscoroutinefunction(obj):
     
 
 ChannelHTML = '''
+<div class="drag-handle">
+  <span class="drag-icon">⋮⋮</span> Channel setup
+</div>
 <table class="channel-table">    
   <tr class="header-row">
     <td class="btn-cell"><button class="channel-btn connect-btn" id='channel_connect{num}'>Connect</button></td>
@@ -34,7 +37,6 @@ ChannelHTML = '''
   <tr>
     <td colspan="6" class="message-cell">
 <div class="message-header">Received Message: <span id="channelValue{num}" class="message-content-inline">0</span></div>
-      
     </td>
   </tr>
   <tr>
