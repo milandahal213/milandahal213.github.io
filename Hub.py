@@ -5,7 +5,6 @@ import struct
 import json
 from pyscript.js_modules import ble
 
-print("I worked")
 
 HubHTML = '''   
 <table>
