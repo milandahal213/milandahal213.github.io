@@ -91,7 +91,7 @@ p {
     box-sizing: border-box;
     margin: 0 10px;
     padding: 4px 10px 10px;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.4;
 }
 
@@ -107,7 +107,7 @@ p {
     --golden-brown: #96893c;
     color: var(--brown);
     font-family: Droid Sans,sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.4;
     box-sizing: border-box;
     text-decoration: underline;
@@ -159,7 +159,7 @@ em {
     line-height: 1.4;
     list-style: none;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 12px;
     background-color: #00000014;
     width: 400px;
     margin-bottom: 10px;
@@ -183,7 +183,7 @@ em {
     box-sizing: border-box;
     margin: 0 10px;
     padding: 4px 10px 10px;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.4;
 }
 
@@ -989,7 +989,7 @@ iframe {
 }
 
 .drag-icon {
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: -2px;
   color: #fcd700;
 }
