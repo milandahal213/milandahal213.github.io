@@ -893,54 +893,6 @@ iframe {
    RESPONSIVE DESIGN - MAIN LAYOUT
    ============================================ */
 
-/* Stack everything at the same breakpoint - 1024px */
-@media (max-width: 1024px) {
-    /* Stack left and right panels */
-    #container {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    #left {
-        width: 100%;
-        min-width: auto;
-        padding: 20px;
-    }
-    
-    #right {
-        width: 100%;
-        min-width: auto;
-        padding: 20px;
-    }
-    
-    #divider {
-        display: none;
-    }
-    
-    /* Stack tab buttons */
-    .tab-buttons {
-        flex-direction: column;
-    }
-    
-    .tab-button {
-        width: 100%;
-    }
-
-    .tab-button::after {
-        display: none;
-    }
-
-    .tab-button.active {
-        background-color: var(--yellow);
-    }
-    
-    /* Channel card adjustments */
-    .channel-card {
-        margin: 20px auto;
-        min-width: 300px;
-        max-width: fit-content;
-    }
-}
 
 @media (max-width: 768px) {
     h1 {
