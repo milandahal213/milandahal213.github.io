@@ -11,14 +11,14 @@ HubHTML = '''
 <table>
   <tr>
     <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 60px; border: none; color: #0000FF'> = </td>
-    <td id = 'name{num}'>Sensor </td>
-    <td><button id = "sync{num}">Connect</button></td>
-    <td><select id="dropdown{num}"></select></td>
+    <td class = "element_name" id = 'name{num}'>Sensor </td>
+    <td><button class = "element_connect_btn" id = "sync{num}">Connect</button></td>
+    <td><select class="elment_drop_down" id="dropdown{num}"></select></td>
     <td style="width: 50px; text-align: center"><label id = "value{num}">0</label></td>
     <td> </td>
   </tr>
 </table>
-<div style = 'color:#0000FF; width: 500px; font-size: 9px' id = "activity{num}"></div>
+<div style = 'color:#0000FF; width: 500px; font-size: 8px' id = "activity{num}"></div>
 '''
 
 import SpikePrime as hub0
