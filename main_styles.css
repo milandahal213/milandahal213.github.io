@@ -521,18 +521,14 @@ label {
    CHANNEL & HUB INTERFACE (Legacy)
    ============================================ */
 #all_things_channels {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
+    position: relative;
     margin: 20px auto;
     padding: 20px;
     background-color: rgba(212, 212, 212, 0.5);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     border-left: 5px solid #ffd700;
     border-radius: 12px;
-    max-width: fit-content;
+    max-width: 100%;
     box-sizing: border-box;
     min-width: 300px;
 }
@@ -584,6 +580,7 @@ div[id^="live"] {
     border-collapse: collapse;
     background-color: transparent;
     margin: 0;
+    width: 100%;
     min-width: 300px;
 }
 
@@ -626,7 +623,6 @@ div[id^="live"] {
 /* Message cell */
 .message-cell {
     padding: 2px !important;
-    background-color: #f5f5f5;
     border-radius: 8px;
 }
 
@@ -970,22 +966,21 @@ iframe {
   background: linear-gradient(135deg, #333129 0%, #4a4739 100%);
   color: white;
   padding: 8px 12px;
-  cursor: move;
   text-align: center;
   font-weight: bold;
   font-size: 12px;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
   user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-bottom: 3px solid #fcd700;
+
 }
 
 .drag-handle:hover {
   background: linear-gradient(135deg, #4a4739 0%, #5c5545 100%);
-  border-bottom-color: #e6c200;
+
 }
 
 .drag-icon {
