@@ -1012,3 +1012,49 @@ iframe {
     cursor: pointer;
     border-radius: 8px;
 }
+
+
+.editor{
+    padding-left: 20px;  /* Indent from the left */
+    padding-top: 10px;   /* Space from top */
+    padding-right: 10px; /* Space from right */
+    padding-bottom: 10px; /* Space from bottom */
+    
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    
+    white-space: pre;  /* Preserves spaces and formatting */
+    tab-size: 4;       /* Tab width */
+    
+    border: 2px solid #d4d4d4;
+    border-radius: 8px;
+    background-color: white;
+    
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+
+}
+
+.CodeMirror-scroll{
+        padding-left: 20px;  /* Indent from the left */
+    padding-top: 10px;   /* Space from top */
+    padding-right: 10px; /* Space from right */
+    padding-bottom: 10px; /* Space from bottom */
+    
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    
+    white-space: pre;  /* Preserves spaces and formatting */
+    tab-size: 4;       /* Tab width */
+    
+    border: 2px solid #d4d4d4;
+    border-radius: 8px;
+    background-color: white;
+    
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+}
