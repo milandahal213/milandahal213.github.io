@@ -61,8 +61,10 @@ class Element:
         try:
             self.hubType = info['GroupID']
             window.console.log(self.hubType)
-            if self.hubType == 512:
-                def run(port = 1, direction = 2):
+            if self.hubType == 512:  # Single Motor
+                def run(speed = None, port = 1, direction = 2):
+                    if speed != None:
+                        self.set_speed(speed, port)
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
                     val['values']['port'] = port
                     val['values']['direction'] = direction & 0x03
@@ -77,11 +79,55 @@ class Element:
                 def stop(port = 1):  
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
                     val['values']['port'] = port
-                    self.set_speed(port, 0)
+                    self.set_speed(0, port)
                 
                 self.run = run
                 self.stop = stop
-                self.set_speed = myspeed                 
+                self.set_speed = myspeed  
+                
+            if self.hubType == 513:  # Double Motor
+                def run(speed = None, port = 1, direction = 2):
+                    if speed != None:
+                        self.set_speed(speed, port)
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
+                    val['values']['port'] = port
+                    val['values']['direction'] = direction & 0x03
+                    self._send(fmt, ID, val) 
+                
+                def myspeed(speed_value = 100, port = 1): 
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
+                    val['values']['port'] = port
+                    val['values']['speed'] = speed_value  
+                    self._send(fmt, ID, val) 
+                
+                def stop(port = 1):  
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
+                    val['values']['port'] = port
+                    self.set_speed(0, port)
+
+                def runL(speed = None):
+                    if speed != None:
+                        self.set_speed(speed, 1)
+                    self.run(None, 1,2)
+
+                def runR(speed = None):
+                    if speed != None:
+                        self.set_speed(speed, 2)
+                    self.run(None, 2,2)
+
+                def runB(speed = None):
+                    if speed != None:
+                        self.set_speed(speed, 1)
+                        self.set_speed(speed, 2)
+                    self.run(None, 1,2)
+                    self.run(None, 2,2)
+
+                self.run = run
+                self.stop = stop
+                self.set_speed = myspeed  
+                self.run_left = runL
+                self.run_right = runR
+                self.run_both = runB
         except Exception as e:
             window.console.log('Error in _information: ',e)
 
@@ -127,6 +173,7 @@ class Element:
 
     async def update_rate(self,rate = 20):
         await self._hub.feed_rate(rate)  #millisec - 20 is the fastest
+
 
 # Wrap the await statements in an async function
 async def setup_elements():
