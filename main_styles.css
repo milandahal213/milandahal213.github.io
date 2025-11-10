@@ -1053,3 +1053,61 @@ iframe {
     min-height: 400px;
     box-sizing: border-box;
 }
+
+/* Tooltip Base Styles */
+.fs-tooltip {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-style: wavy;
+    cursor: help;
+    display: inline-block;
+}
+.fs-tooltip::before {
+    content: attr(fb-tooltip-message);
+    position: absolute;
+    top: calc(100% + 10px); /* Show below */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: #2a2a2a;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 400px;
+    width: max-content;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 10000;
+    
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.fs-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    border: 8px solid transparent;
+    border-bottom-color: #2a2a2a; /* Arrow points up */
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10000;
+}
+
+.fs-tooltip:hover::before,
+.fs-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
