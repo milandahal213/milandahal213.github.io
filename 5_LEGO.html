@@ -34,24 +34,21 @@
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
             <div class="channel-card" id='all_things_channels'></div>
-            <h3>Channels</h3>
-            <p class="paragraph-11">Another powerful part of Python is the ability to exchange information through
-                channels across different computers.<br><br>
-                We will use channels to collaborate across groups.<br><br>
-
+            <h3>Connecting to LEGO Hardware</h3>
+            <p class="paragraph-11">Connect this page to the LEGO Education Science single motor.<br><br>
             <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">Press the “Connect” button to connect to the /LEGO channel.<br>
+                <li class="code-list-item">Power single motor on and press power button once to advertise via bluetooth. Press the "Connect" button to connect.<br>
                 </li>
-                <li class="code-list-item">Type a message into the “Send This” box and press the “Send” button.<br>
+                <li class="code-list-item">Name the connected motor by replacing "element" with "motor"<br>
                 </li>
             </ul>
-            <br>
-            <p class="paragraph-11">Try creating a secret channel with another group.<br><br>
-                Try sending a message using a Python function.<br><br>
+            <p class="paragraph-11">You can control the motor with Python commands in the REPL.<br></p>
             <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">channel.send("Hello there!")<br>
+                <li class="code-list-item">motor.set_speed(50)<br>motor.run()
                 </li>
+                <li class="code-list-item">motor.stop()</li>
             </ul>
+            <p class="paragraph-11">Try changing the speed of the motor.</p>
 
             <div style="display:none" id="code" class="editor-container">
                 <h2>Writing_ your own code</h2>
