@@ -11,23 +11,29 @@
     <!-- Safari SharedArrayBuffer -->
     <script src="./safari-sab.js"></script>
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
     <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
 
-    <!-- CodeMirror CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
 
 
-    <!-- my CSS 
-    <link rel="stylesheet" href="instr_styles.css">-->
+    <!-- my CSS -->
     <link rel="stylesheet" href="./main_styles.css">
+
+
 </head>
 
 <body>
     <div class="channel-card draggable-card" id='all_things_channels'></div>
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
+
             <h3>Channels</h3>
             <p class="paragraph-11">Another powerful part of Python is the ability to exchange information through
                 channels across different computers.<br><br>
@@ -49,22 +55,18 @@
             </ul>
 
         </div>
+
         <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
         <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+
             <div class="element-container" id='hub1'></div>
             <div class="element-container" id='hub2'></div>
             <script id="python-terminal" type="mpy" src="./5_LEGO.py" config="./pyscript.toml" env='image'
                 terminal></script>
-
         </div>
     </div>
-
-    <!-- CodeMirror JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
-
     <script src="scripts.js"></script>
-
+    <textarea id="code-editor"></textarea>
 </body>
 
 </html>
