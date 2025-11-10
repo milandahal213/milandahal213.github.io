@@ -42,7 +42,6 @@ channel = Channel()
 import code
 code.interact()
 
-
 import Hub 
 class Element:
     """You can use this function to read or write to a tech element.
@@ -61,10 +60,8 @@ class Element:
         try:
             self.hubType = info['GroupID']
             window.console.log(self.hubType)
-            if self.hubType == 512:  # Single Motor
-                def run(speed = None, port = 1, direction = 2):
-                    if speed != None:
-                        self.set_speed(speed, port)
+            if self.hubType == 512:
+                def run(port = 1, direction = 2):
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
                     val['values']['port'] = port
                     val['values']['direction'] = direction & 0x03
@@ -79,55 +76,11 @@ class Element:
                 def stop(port = 1):  
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
                     val['values']['port'] = port
-                    self.set_speed(0, port)
+                    self.set_speed(port, 0)
                 
                 self.run = run
                 self.stop = stop
-                self.set_speed = myspeed  
-                
-            if self.hubType == 513:  # Double Motor
-                def run(speed = None, port = 1, direction = 2):
-                    if speed != None:
-                        self.set_speed(speed, port)
-                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
-                    val['values']['port'] = port
-                    val['values']['direction'] = direction & 0x03
-                    self._send(fmt, ID, val) 
-                
-                def myspeed(speed_value = 100, port = 1): 
-                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
-                    val['values']['port'] = port
-                    val['values']['speed'] = speed_value  
-                    self._send(fmt, ID, val) 
-                
-                def stop(port = 1):  
-                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
-                    val['values']['port'] = port
-                    self.set_speed(0, port)
-
-                def runL(speed = None):
-                    if speed != None:
-                        self.set_speed(speed, 1)
-                    self.run(None, 1,2)
-
-                def runR(speed = None):
-                    if speed != None:
-                        self.set_speed(speed, 2)
-                    self.run(None, 2,2)
-
-                def runB(speed = None):
-                    if speed != None:
-                        self.set_speed(speed, 1)
-                        self.set_speed(speed, 2)
-                    self.run(None, 1,2)
-                    self.run(None, 2,2)
-
-                self.run = run
-                self.stop = stop
-                self.set_speed = myspeed  
-                self.run_left = runL
-                self.run_right = runR
-                self.run_both = runB
+                self.set_speed = myspeed                 
         except Exception as e:
             window.console.log('Error in _information: ',e)
 
@@ -144,7 +97,6 @@ class Element:
             reply = self._hub.reply
             if 'Motor_1' in reply.keys():
                 self.position = reply['Motor_1']['position']
-                #window.console.log(self.position)
                 self.angle = reply['Motor_1']['angle']
                 self.speed = reply['Motor_1']['speed']
                 self.battery = reply['hub info']['Battery']
@@ -155,14 +107,14 @@ class Element:
                 self.speed2 = reply['Motor_2']['speed']
                 self.battery2 = reply['hub info']['Battery']
                 
-            if 'Color' in reply.keys(): #'color', 'reflection', 'red', 'green', 'blue', 'hue', 'saturation', 'value'
+            if 'Color' in reply.keys():
                 self.color = reply['Color']['color']
                 self.reflection = reply['Color']['reflection']
                 self.rgb = (reply['Color']['red'], reply['Color']['green'], reply['Color']['blue'])
                 self.hsv = (reply['Color']['hue'], reply['Color']['stauration'], reply['Color']['value'])
                 self.battery = reply['hub info']['Battery']
                 
-            if 'Joystick' in reply.keys():  #'leftStep', 'rightStep','leftAngle','rightAngle'
+            if 'Joystick' in reply.keys():
                 self.leftStep = reply['Joystick']['leftStep']
                 self.rightStep = reply['Joystick']['rightStep']
                 self.leftAngle = reply['Joystick']['leftAngle']
@@ -172,44 +124,42 @@ class Element:
             pass
 
     async def update_rate(self,rate = 20):
-        await self._hub.feed_rate(rate)  #millisec - 20 is the fastest
+        await self._hub.feed_rate(rate)
 
+# Get terminal reference
+python_terminal = document.getElementById("python-terminal")
 
-# Wrap the await statements in an async function
-async def setup_elements():
-    global element1, element2
-    
-    element1 = Element('hub1', '_1', 2)
-    await element1.update_rate(20)
-    
-    element2 = Element('hub2', '_2', 2)
-    await element2.update_rate(20)
-    
-    try:
-        document.getElementById('title_2').innerText = ''
-        _e1 = document.getElementById('var_1')
-        _e1.value = 'EL1'
-        _e2 = document.getElementById('var_2')
-        _e2.value = 'EL2'
-    except Exception as e:
-        window.console.log('Element access error:', e)
+# Create elements (this creates the HTML with var_1 and var_2)
+element1 = Element('hub1', '_1', 2)
+await element1.update_rate(20)
+element2 = Element('hub2', '_2', 2)
+await element2.update_rate(20)
+#document.getElementById('title_2').innerText = ''
 
-# Create a task to run the async setup
-asyncio.create_task(setup_elements())
+# NOW the elements exist, so get references to them
+_e1 = document.getElementById('var_1')
+_e1.value = 'element1'
+_e2 = document.getElementById('var_2')
+_e2.value = 'element2'
 
-@when('change','#var_1')
-def rename():
-    _e1 = document.getElementById('var_1')
+# Define the rename functions
+def rename_func1(event):
+    window.console.log("rename1 called!")
     _e1.value = _e1.value.replace(' ','_')
     new_name = _e1.value
     globals()[new_name] = element1
+    python_terminal.process(f"{new_name} = element1")
+    window.console.log(f"Created: {new_name}")
 
-
-@when('change','#var_2')
-def rename2():
-    _e2 = document.getElementById('var_2')
+def rename_func2(event):
+    window.console.log("rename2 called!")
     _e2.value = _e2.value.replace(' ','_')
     new_name = _e2.value
     globals()[new_name] = element2
+    python_terminal.process(f"{new_name} = element2")
+    window.console.log(f"Created: {new_name}")
 
+# Attach event listeners AFTER elements exist
+_e1.addEventListener('change', rename_func1)
+_e2.addEventListener('change', rename_func2)
 

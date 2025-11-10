@@ -9,7 +9,7 @@ from pyscript.js_modules import ble
 HubHTML = '''   
 <table>
   <tr>
-    <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 100px; border: none; color: #0000FF'> = </td>
+    <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 1 00px; border: none; color: #0000FF'> = </td>
     <td class = "element_name" id = 'name{num}'>Sensor </td>
     <td><button class = "element_connect_btn" id = "sync{num}">Connect</button></td>
     <td><select class="elment_drop_down" id="dropdown{num}"></select></td>
