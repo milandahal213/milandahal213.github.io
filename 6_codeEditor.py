@@ -170,8 +170,6 @@ def typeIt():
     lines = mycode.split("\n")
     python_terminal.process('\x05')
     for line in lines:
-        for char in line:
-            python_terminal.terminal.write(char)
-        python_terminal.terminal.write("\x1b[2K\r>>> ")
-        python_terminal.process(line.strip())
+        # DON'T write char by char - just process the whole line directly
+        python_terminal.process(line)  # This preserves the indentation
     python_terminal.process('\x04')
