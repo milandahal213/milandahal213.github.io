@@ -253,14 +253,14 @@ em {
     cursor: pointer;
     color: #222;
     background-color: #ddd;
-    padding: 15px 30px;
+    padding: 10px 20px;
     text-decoration: none;
     display: inline-block;
     position: relative;
     border: none;
     border-radius: 0;
     font-family: Koulen, sans-serif;
-    font-size: 18px; /* Reset font-size here */
+    font-size: 14px; /* Reset font-size here */
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
