@@ -651,7 +651,7 @@ div[id^="live"] {
     white-space: nowrap;
     border: none;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 8px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
