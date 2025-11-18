@@ -856,7 +856,7 @@ py-terminal,
     margin: 0 auto;
     border: 20px solid #1a1a1a;
     border-radius: 12px;
-    overflow: hidden !important;
+
 }
 
 /* Hide scrollbar for the terminal content */
@@ -876,11 +876,7 @@ py-terminal * {
     scrollbar-width: none !important;  /* Firefox */
 }
 
-/* Target the internal terminal elements */
-py-terminal > *,
-.py-terminal > * {
-    overflow: hidden !important;
-}
+
 
 /* ============================================
    IFRAMES
