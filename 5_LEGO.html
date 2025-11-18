@@ -35,36 +35,25 @@
         <div id="left" style="flex: 1; overflow: auto;">
             <div class="channel-card" id='all_things_channels'></div>
             <h3>Connecting to LEGO Motors</h3>
-            <p class="paragraph-11">Connect to a LEGO Education Science single motor.</p>
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">Power single motor on and set to Bluetooth™ mode. Press the "Connect" button to connect.
-                </li>
-                <li class="code-list-item">Name the connected motor by replacing the title "element" with "motor".
-                </li>
-            </ul>
-            <p class="paragraph-11">You can control the motor with Python commands in the REPL.</p>
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">motor.set_speed(50)<br>motor.run()
-                </li>
-                <li class="code-list-item">motor.stop()</li>
-            </ul>
-            <p class="paragraph-11">Try changing the speed of the motor.</p>
-            <h3>Connecting to LEGO Sensors</h3>
-            <p class="paragraph-11">Connect to a LEGO Education Science color sensor.</p>
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">Follow the steps above to connect to the color sensor.
-                </li>
-                <li class="code-list-item">Name the color sensor by replacing "element" with "color"
-                </li>
-            </ul>
-            <p class="paragraph-11">You can read color sensor data values from the REPL. Paste the below snippets into the REPL. What does it print in response?</p>
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">color.RGB
-                </li>
-                <li class="code-list-item">color.reflection</li>
-            </ul>
-            <p class="paragraph-11">Can you set the speed of the motor to the reflection value of the color sensor?</p>
+            <p class="paragraph-11">You can use Python to send commands to a motor.</p>
+            <p class="paragraph-11">Connect to a LEGO Education Science Single Motor</p>
 
+
+            <ol class="simple-instruction-list">
+                <li>Press the power button to turn it on.</li>
+                <li>Press the power button again to set it to Bluetooth mode. <em>The motor should beep.</em></li>
+                <li>Click "Connect" in the "Bluetooth™" section on the top-right of this page.</li>
+                <li>Select your motor and click "Pair."</li>
+            </ol>
+            <p class="paragraph-11">Type the lines below into the REPL to send Python instructions to your motor.</p>
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">element1.set_speed(50)</li>  
+                <li class="code-list-item"> element1.run()</li>   
+                <li class="code-list-item"> element1.stop()</li>
+            </ul>
+            <p class="paragraph-12">Try changing the speed of the motor.</p>
+            
+            
             <div style="display:none" id="code" class="editor-container">
                 <h2>Writing_ your own code</h2>
                 <textarea id="code-editor"></textarea>

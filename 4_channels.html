@@ -34,24 +34,29 @@
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
             <div class="channel-card" id='all_things_channels'></div>
-            <h3>Connecting via Channels</h3>
+            <h3>Connecting over Channels</h3>
+
             <p class="paragraph-11">Another powerful part of Python is the ability to exchange information through
                 channels across different computers.<br><br>
-                We will use channels to collaborate across groups.<br>
+                We will use channels to collaborate across groups.<br></p>
 
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">Press the “Connect” button to connect to the /LEGO channel.<br>
+            <ol class="simple-instruction-list">
+                <li>Press the “Connect” button to connect to the /LEGO channel.<br>
                 </li>
-                <li class="code-list-item">Type a message into the “Send This” box and press the “Send” button.<br>
+                <li>Type a message into the “Send This” box and press the “Send” button.<br>
+                </li>
+            </ol>
+
+            <p class="paragraph-11">Do you see your message in the log? Next, try typing a Python command in the REPL to
+                send a message.
+                <br>
+            </p>
+                 <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">channel.send('howdy!')<br>
                 </li>
             </ul>
-            <p class="paragraph-11">Try creating a secret channel with another group and exchanging messages.</p>
-            <h3>Using Channels with Python</h3>
-            <p class="paragraph-11">Try sending a message from the REPL with a Python function.</p><br>
-            <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">channel.send("Hello there!")<br>
-                </li>
-            </ul>
+            <p class="paragraph-12">Try partnering with another group to replace /LEGO with your own /CHANNEL-NAME
+                and exchange secret messages!</p>
 
         </div>
 
@@ -64,10 +69,10 @@
     </div>
     <script src="scripts.js"></script>
     <div style="display:none" id="code" class="editor-container">
-    <h2>Writing_ your own code</h2>
-    <textarea id="code-editor"></textarea>
-    <button id="REPLRun">Run in REPL</button>
-</div>
+        <h2>Writing_ your own code</h2>
+        <textarea id="code-editor"></textarea>
+        <button id="REPLRun">Run in REPL</button>
+    </div>
 </body>
 
 </html>

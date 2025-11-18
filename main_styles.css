@@ -91,7 +91,7 @@ p {
     box-sizing: border-box;
     margin: 0 10px;
     padding: 4px 10px 10px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
 }
 
@@ -112,7 +112,7 @@ p {
     box-sizing: border-box;
     margin: 0 10px;
     padding: 4px 10px 10px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
 }
 
@@ -161,7 +161,7 @@ em {
     line-height: 1.4;
     list-style: none;
     box-sizing: border-box;
-    font-size: 12px;
+    font-size: 14px;
     background-color: #010101;
     width: 400px;
     margin-bottom: 10px;
@@ -185,7 +185,7 @@ em {
     box-sizing: border-box;
     margin: 0 10px;
     padding: 4px 10px 10px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
 }
 
@@ -1133,4 +1133,21 @@ iframe {
     width: 100%;
     min-height: 400px;
     box-sizing: border-box;
+}
+
+/* ============================================
+   NUMBERED LIST STYLES
+   ============================================ */
+
+/* Simple version matching your paragraph-11 style */
+.simple-instruction-list {
+    color: var(--brown, #333129);
+    font-family: Droid Sans, sans-serif;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.simple-instruction-list li {
+    margin-bottom: 5px;
+    padding-left: 5px;
 }
