@@ -34,25 +34,23 @@
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
             <div class="channel-card" id='all_things_channels'></div>
-            <h3>Connecting to LEGO Motors</h3>
-            <p class="paragraph-11">You can use Python to send commands to a motor.</p>
-            <p class="paragraph-11">Connect to a LEGO Education Science Single Motor</p>
 
-
-            <ol class="simple-instruction-list">
-                <li>Press the power button to turn it on.</li>
-                <li>Press the power button again to set it to Bluetooth mode. <em>The motor should beep.</em></li>
-                <li>Click "Connect" in the "Bluetooth™" section on the top-right of this page.</li>
-                <li>Select your motor and click "Pair."</li>
-            </ol>
-            <p class="paragraph-11">Type the lines below into the REPL to send Python instructions to your motor.</p>
+            <h3>Self-Help</h3>
+            <p class="paragraph-11">Python has built-in tools that allow users to explore the different commands in a library. Type the text below into the REPL and press the TAB button. What do you see?
+</p>
             <ul role="list" class="list-5 w-list-unstyled">
-                <li class="code-list-item">motor.set_speed(50)</li>  
-                <li class="code-list-item"> motor.run()</li>   
-                <li class="code-list-item"> motor.stop()</li>
+                <li class="code-list-item">motor.</li>  
             </ul>
-            <p class="paragraph-12">Try changing the speed of the motor.</p>
-            
+            <p class="paragraph-12">The REPL should print out a menu of different commands available for the motor.</p>
+
+            <p class="paragraph-11">You can also use help() to learn more about certain hardware or commands. Try typing the below into the REPL.</p>
+
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">help(motor)</li>  
+            </ul>
+            <p class="paragraph-12">The REPL should provide information about the motor and its sensor readings.</p>
+
+
             
             <div style="display:none" id="code" class="editor-container">
                 <h2>Writing_ your own code</h2>
@@ -67,7 +65,7 @@
 
             <div class="element-container" id='hub1'></div>
             <div class="element-container" id='hub2'></div>
-            <script id="python-terminal" type="mpy" src="./5_LEGO.py" config="./pyscript.toml" env='image'
+            <script id="python-terminal" type="mpy" src="./6_discover.py" config="./pyscript.toml" env='image'
                 terminal></script>
         </div>
     </div>
