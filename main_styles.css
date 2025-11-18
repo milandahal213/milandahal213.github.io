@@ -854,29 +854,25 @@ py-terminal,
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     max-width: 100%;
     margin: 0 auto;
-    border: 10px solid #1a1a1a;
+    border: 20px solid #1a1a1a;
     border-radius: 12px;
 
 }
 
-/* Hide scrollbar for the terminal content */
-py-terminal::-webkit-scrollbar,
-.py-terminal::-webkit-scrollbar,
-py-terminal *::-webkit-scrollbar,
-.py-terminal *::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
+
 
 py-terminal,
 .py-terminal,
 py-terminal * {
     -ms-overflow-style: none !important;  /* IE and Edge */
-    scrollbar-width: none !important;  /* Firefox */
+    scrollbar-width: 5px !important;  /* Firefox */
 }
 
-
+/* Target the internal terminal elements */
+py-terminal > *,
+.py-terminal > * {
+    overflow: auto !important;
+}
 
 /* ============================================
    IFRAMES
