@@ -163,3 +163,4 @@ def rename_func2(event):
 _e1.addEventListener('change', rename_func1)
 _e2.addEventListener('change', rename_func2)
 
+window.console.log("Rename event listeners attached!")

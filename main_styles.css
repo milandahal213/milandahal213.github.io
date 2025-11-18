@@ -492,7 +492,7 @@ label {
     padding: 20px;
     position: fixed;
     z-index: 10000;
-    font-size: 1em;
+    font-size: 0.6em;
     line-height: 1.6;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -905,7 +905,7 @@ iframe {
 
     .tooltip .tooltip-text {
         width: 280px;
-        font-size: 0.9em;
+        font-size: 0.6em;
         padding: 15px;
     }
     
