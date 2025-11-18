@@ -43,7 +43,6 @@ import code
 code.interact()
 
 
-
 # -------------------------
 # TECH ELEMENTS
 # -------------------------
@@ -67,7 +66,7 @@ class Element:
             self.hubType = info['GroupID']
             window.console.log(self.hubType)
             if self.hubType == 512:  # Single Motor
-                def run(speed = None, port = 1, direction = 2):
+                def run(speed = 100, port = 1, direction = 2):
                     if speed != None:
                         self.set_speed(speed, port)
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
@@ -91,7 +90,7 @@ class Element:
                 self.set_speed = myspeed  
                 
             if self.hubType == 513:  # Double Motor
-                def run(speed = None, port = 1, direction = 2):
+                def run(speed = 100, port = 1, direction = 2):
                     if speed != None:
                         self.set_speed(speed, port)
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
@@ -138,16 +137,6 @@ class Element:
                         window.console.log('current val: ',cmds)
                         cmds.append((fmt, ID, {'values':{'port':2,'speed':speed_value}})) 
                         window.console.log('current val: ',cmds)
-
-                        '''fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
-                        val['values']['port'] = 1
-                        val['values']['speed'] = speed_value  
-                        cmds.append((fmt, ID, val)) 
-                        window.console.log('current val: ',cmds)
-                        val2 = val.copy()
-                        val2['values']['port'] = 2
-                        cmds.append((fmt, ID, val2)) 
-                        window.console.log('current val: ',cmds)'''
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
                     val['values']['port'] = 1
                     val['values']['direction'] = 1
@@ -250,6 +239,7 @@ class Element:
         await self._hub.feed_rate(rate)  #millisec - 20 is the fastest
 
 
+   
 
 
 # Get terminal reference
