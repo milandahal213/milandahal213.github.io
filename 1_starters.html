@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>REPL</title>
 
@@ -17,7 +18,7 @@
     <!-- my CSS 
     <link rel="stylesheet" href="instr_styles.css">-->
     <link rel="stylesheet" href="./main_styles.css">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
 </head>
@@ -25,20 +26,46 @@
 <body>
 
     <div id="headertext" style="display: flex;  margin: 20px;">
- 
+
     </div>
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-        <h3>Python Basics</h3>       
-        <p class="paragraph-11">Let’s practice some Python basics with this <span class="fs-tooltip" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message=" A REPL is like a live chat with your computer. You type a command and it answers right away. REPL stands for Read, Evaluate, Print, Loop.  Read: The computer reads what you type. Evaluate: It runs or calculates your code. Print: It shows you the result." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true" fb-tooltip-trigger="hover">REPL</span>. This is a tool that lets you type one line of code at a time and instantly see the result.</p>
-        <ul role="list" class="list-5 w-list-unstyled"><li class="code-list-item">2+2</li><li class="code-list-item">a=2</li><li class="code-list-item">2+a</li><li class="code-list-item">print(a)</li><li class="code-list-item">print("hello!")</li></ul>
-        <p class="paragraph-10">Try a different math problem with a new variable.<br><br>Try printing a different word or phrase.<br></p>
-    </div>
-        <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
-        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
-            <script id="python-terminal" type="mpy" src="./1_starters.py" config="./pyscript.toml" terminal worker></script>
+            <h3>Meet the REPL</h3>
+            <p class="paragraph-11">A <span class="fs-tooltip" fb-tooltip-position="top"
+                    fb-tooltip-animation="shift-away"
+                    fb-tooltip-message=" A REPL is like a live chat with your computer. You type a command and it answers right away. REPL stands for Read, Evaluate, Print, Loop.  Read: The computer reads what you type. Evaluate: It runs or calculates your code. Print: It shows you the result."
+                    fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true"
+                    fb-tooltip-trigger="hover">REPL</span> is like a live chat with your computer. For practice or
+                troubleshooting, programmers can type one line of code at a time and instantly see the result.</p>
+
+            <p class="paragraph-10">Try typing these lines one-by-one into the REPL on the right. How does it respond?
+            </p>
+
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">1 + 1</li>
+            </ul>
+
+            <p class="paragraph-10">The REPL remembers what you've previously typed. Try defining a variable. Then use
+                the variable in a math problem.</p>
+
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">a = 2</li>
+            </ul>
+
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">2 + a</li>
+            </ul>
+
+            <p class="paragraph-10">Does it remember the variable correctly?<br>Try defining a new variable "b" and
+                entering a new math problem in the REPL.</p>
         </div>
+    </div>
+    <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+    <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+        <script id="python-terminal" type="mpy" src="./1_starters.py" config="./pyscript.toml" terminal worker></script>
+    </div>
     </div>
     <script src="scripts.js"></script>
 </body>
+
 </html>
