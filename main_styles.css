@@ -95,26 +95,6 @@ p {
     line-height: 1.4;
 }
 
-.fs-tooltip{
-    -webkit-text-size-adjust: 100%;
-    --brown: #333129;
-    --yellow: #fcd700;
-    --black: black;
-    --golden-brown-transparent: #635d3c26;
-    --white: #fff;
-    --color-2: #c9b128;
-    --transparent: #fff0;
-    --golden-brown: #96893c;
-    color: var(--brown);
-    font-family: Droid Sans,sans-serif;
-    font-size: 12px;
-    line-height: 1.4;
-    box-sizing: border-box;
-    text-decoration: underline;
-    text-decoration-color: var(--yellow);
-    text-decoration-style: wavy;
-}
-
 em {
     color: #666;
     font-style: italic;
@@ -473,7 +453,7 @@ label {
 }
 
 /* ============================================
-   TOOLTIPS
+   TOOLTIPS - OLD STYLE (LEGACY)
    ============================================ */
 .tooltip {
     position: relative;
@@ -515,6 +495,75 @@ label {
 .tooltip:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
+}
+
+/* ============================================
+   TOOLTIPS - NEW FS-TOOLTIP STYLE WITH BOUNDARY DETECTION
+   ============================================ */
+.fs-tooltip {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--yellow);
+    text-decoration-style: wavy;
+    cursor: help;
+    display: inline-block;
+}
+
+.fs-tooltip::before {
+    content: attr(fb-tooltip-message);
+    position: fixed;
+    top: var(--tooltip-top, calc(100% + 10px));
+    left: var(--tooltip-left, 50%);
+    transform: var(--tooltip-transform, translate(-50%, 0));
+    
+    background-color: #2a2a2a;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 400px;
+    width: max-content;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 10000;
+    
+    white-space: normal;
+    word-wrap: break-word;
+    pointer-events: none;
+}
+
+.fs-tooltip::after {
+    content: '';
+    position: fixed;
+    top: var(--arrow-top, 100%);
+    left: var(--arrow-left, 50%);
+    transform: var(--arrow-transform, translate(-50%, 0));
+    
+    border: 8px solid transparent;
+    border-bottom-color: #2a2a2a;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.fs-tooltip:hover::before,
+.fs-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow flip when tooltip is above */
+.fs-tooltip.flip-above::after {
+    border-bottom-color: transparent !important;
+    border-top-color: #2a2a2a !important;
 }
 
 /* ============================================
@@ -762,7 +811,7 @@ div[id^="live"] {
     font-weight: 600;
     font-size: 12px;
     color: #333;
-    margin-bottom: 0; /* Changed from 10px */
+    margin-bottom: 0;
 }
 
 .message-content {
@@ -787,6 +836,7 @@ div[id^="live"] {
     display: inline;
     margin-left: 8px;
 }
+
 /* ============================================
    ACTIVITY LOG
    ============================================ */
@@ -888,8 +938,6 @@ iframe {
 /* ============================================
    RESPONSIVE DESIGN - MAIN LAYOUT
    ============================================ */
-
-
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8em;
@@ -907,6 +955,12 @@ iframe {
         width: 280px;
         font-size: 0.6em;
         padding: 15px;
+    }
+    
+    .fs-tooltip::before {
+        max-width: 280px;
+        font-size: 11px;
+        padding: 10px 12px;
     }
     
     /* Terminal takes full width on mobile */
@@ -962,44 +1016,48 @@ iframe {
         min-width: 260px;
     }
 }
-.drag-handle {
-  background: linear-gradient(135deg, #333129 0%, #4a4739 100%);
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 12px;
-  border-radius: 8px;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 
+/* ============================================
+   DRAG HANDLE
+   ============================================ */
+.drag-handle {
+    background: linear-gradient(135deg, #333129 0%, #4a4739 100%);
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 8px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .drag-handle:hover {
-  background: linear-gradient(135deg, #4a4739 0%, #5c5545 100%);
-
+    background: linear-gradient(135deg, #4a4739 0%, #5c5545 100%);
 }
 
 .drag-icon {
-  font-size: 12px;
-  letter-spacing: -2px;
-  color: #fcd700;
+    font-size: 12px;
+    letter-spacing: -2px;
+    color: #fcd700;
 }
 
-
-.element_name{
+/* ============================================
+   ELEMENT STYLES
+   ============================================ */
+.element_name {
     font-size: 10px;
     color: #333;
 }
 
-.element_connect_btn{
+.element_connect_btn {
     border-radius: 8px;
 }
 
-.elment_drop_down{
+.elment_drop_down {
     padding: 15px 4px;
     border: 2px solid #d4d4d4;
     font-size: 10px;
@@ -1008,42 +1066,21 @@ iframe {
     border-radius: 8px;
 }
 
-
-.editor{
-    padding-left: 20px;  /* Indent from the left */
-    padding-top: 10px;   /* Space from top */
-    padding-right: 10px; /* Space from right */
-    padding-bottom: 10px; /* Space from bottom */
+/* ============================================
+   CODE EDITOR
+   ============================================ */
+.editor {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
     font-size: 14px;
     line-height: 1.5;
     
-    white-space: pre;  /* Preserves spaces and formatting */
-    tab-size: 4;       /* Tab width */
-    
-    border: 2px solid #d4d4d4;
-    border-radius: 8px;
-    background-color: white;
-    
-    width: 100%;
-    min-height: 400px;
-    box-sizing: border-box;
-
-}
-
-.CodeMirror-scroll{
-        padding-left: 20px;  /* Indent from the left */
-    padding-top: 10px;   /* Space from top */
-    padding-right: 10px; /* Space from right */
-    padding-bottom: 10px; /* Space from bottom */
-    
-    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    
-    white-space: pre;  /* Preserves spaces and formatting */
-    tab-size: 4;       /* Tab width */
+    white-space: pre;
+    tab-size: 4;
     
     border: 2px solid #d4d4d4;
     border-radius: 8px;
@@ -1054,60 +1091,24 @@ iframe {
     box-sizing: border-box;
 }
 
-/* Tooltip Base Styles */
-.fs-tooltip {
-    position: relative;
-    text-decoration: underline;
-    text-decoration-color: var(--yellow);
-    text-decoration-style: wavy;
-    cursor: help;
-    display: inline-block;
-}
-.fs-tooltip::before {
-    content: attr(fb-tooltip-message);
-    position: absolute;
-    top: calc(100% + 10px); /* Show below */
-    left: 50%;
-    transform: translateX(-50%);
+.CodeMirror-scroll {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     
-    background-color: #2a2a2a;
-    color: white;
-    padding: 12px 16px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    
+    white-space: pre;
+    tab-size: 4;
+    
+    border: 2px solid #d4d4d4;
     border-radius: 8px;
-    font-size: 8px;
-    line-height: 1.4;
-    max-width: 400px;
-    width: max-content;
+    background-color: white;
     
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 10000;
-    
-    white-space: normal;
-    word-wrap: break-word;
-}
-
-.fs-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    border: 8px solid transparent;
-    border-bottom-color: #2a2a2a; /* Arrow points up */
-    
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 10000;
-}
-
-.fs-tooltip:hover::before,
-.fs-tooltip:hover::after {
-    opacity: 1;
-    visibility: visible;
+    width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
 }
