@@ -3,11 +3,6 @@ const left = document.getElementById('left');
 const right = document.getElementById('right');
 const container = document.getElementById('container');
 
-fetch('crumbs.html')
-  .then(response => response.text())
-  .then(html => { 
-    document.getElementById('breadcrumb-container').innerHTML = html; 
-  });
 
 divider.addEventListener('mousedown', () => {
   document.addEventListener('mousemove', resize);
