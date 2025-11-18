@@ -130,33 +130,33 @@ class Element:
 python_terminal = document.getElementById("python-terminal")
 
 # Create elements (this creates the HTML with var_1 and var_2)
-element1 = Element('hub1', '_1', 2)
-await element1.update_rate(20)
-element2 = Element('hub2', '_2', 2)
-await element2.update_rate(20)
+motor = Element('hub1', '_1', 2)
+await motor.update_rate(20)
+sensor = Element('hub2', '_2', 2)
+await sensor.update_rate(20)
 #document.getElementById('title_2').innerText = ''
 
 # NOW the elements exist, so get references to them
 _e1 = document.getElementById('var_1')
-_e1.value = 'element1'
+_e1.value = 'motor'
 _e2 = document.getElementById('var_2')
-_e2.value = 'element2'
+_e2.value = 'sensor'
 
 # Define the rename functions
 def rename_func1(event):
     window.console.log("rename1 called!")
     _e1.value = _e1.value.replace(' ','_')
     new_name = _e1.value
-    globals()[new_name] = element1
-    python_terminal.process(f"{new_name} = element1")
+    globals()[new_name] = motor
+    python_terminal.process(f"{new_name} = motor")
     window.console.log(f"Created: {new_name}")
 
 def rename_func2(event):
     window.console.log("rename2 called!")
     _e2.value = _e2.value.replace(' ','_')
     new_name = _e2.value
-    globals()[new_name] = element2
-    python_terminal.process(f"{new_name} = element2")
+    globals()[new_name] = sensor
+    python_terminal.process(f"{new_name} = sensor")
     window.console.log(f"Created: {new_name}")
 
 # Attach event listeners AFTER elements exist
