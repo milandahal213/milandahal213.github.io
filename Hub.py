@@ -9,14 +9,19 @@ from pyscript.js_modules import ble
 HubHTML = '''   
 <table>
   <tr>
-    <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 1 00px; border: none; color: #0000FF'> = </td>
-    <td class = "element_name" id = 'name{num}'>Sensor </td>
     <td><button class = "element_connect_btn" id = "sync{num}">Connect</button></td>
+    <td><input id = 'var{num}' maxlength = 20 type='text' value = "element" style='width: 50px; border: none; color: #0000FF'> </td>
+    
     <td><select class="elment_drop_down" id="dropdown{num}"></select></td>
-    <td style="width: 50px; text-align: center"><label id = "value{num}">0</label></td>
+      <td style="width: 50px; text-align: center"><label id = "value{num}">0</label></td>
     <td> </td>
   </tr>
+  <tr>
+  <td class = "element_name" id = 'name{num}' style = "visibility:hidden"> </td>
+
+  </tr>
 </table>
+
 <div style = 'color:#0000FF; width: 500px; font-size: 8px' id = "activity{num}"></div>
 '''
 
@@ -26,7 +31,7 @@ import TechElement as hub2
 hubs = [hub0, hub1, hub2] 
 
 class Hub_PS:
-    def __init__(self, divName = 'all_things_hubs', suffix='_hub', hub = 2):
+    def __init__(self, divName = 'all_things_hub', suffix='_hub', hub = 2):
         self.defined_hub = hub
         self.hubInfo = hubs[hub]
         self.hubdiv = document.getElementById(divName)

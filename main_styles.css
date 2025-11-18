@@ -595,7 +595,7 @@ label {
     padding: 20px;
     background-color: rgba(212, 212, 212, 0.5);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-left: 5px solid #ffd700;
+    border: 5px solid #ffd700;
     border-radius: 12px;
     max-width: 100%;
     box-sizing: border-box;
@@ -628,7 +628,7 @@ div[id^="activity"] {
     padding: 20px;
     background-color: #d4d4d4;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-left: 5px solid #ffd700;
+    border: 5px solid #ffd700;
     border-radius: 12px;
     max-width: fit-content;
     box-sizing: border-box;

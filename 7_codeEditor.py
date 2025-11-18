@@ -42,6 +42,12 @@ channel = Channel()
 import code
 code.interact()
 
+
+
+# -------------------------
+# TECH ELEMENTS
+# -------------------------
+import code
 import Hub 
 class Element:
     """You can use this function to read or write to a tech element.
@@ -60,8 +66,10 @@ class Element:
         try:
             self.hubType = info['GroupID']
             window.console.log(self.hubType)
-            if self.hubType == 512:
-                def run(port = 1, direction = 2):
+            if self.hubType == 512:  # Single Motor
+                def run(speed = None, port = 1, direction = 2):
+                    if speed != None:
+                        self.set_speed(speed, port)
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
                     val['values']['port'] = port
                     val['values']['direction'] = direction & 0x03
@@ -76,20 +84,134 @@ class Element:
                 def stop(port = 1):  
                     fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
                     val['values']['port'] = port
-                    self.set_speed(port, 0)
+                    self.set_speed(0, port)
                 
                 self.run = run
                 self.stop = stop
-                self.set_speed = myspeed                 
+                self.set_speed = myspeed  
+                
+            if self.hubType == 513:  # Double Motor
+                def run(speed = None, port = 1, direction = 2):
+                    if speed != None:
+                        self.set_speed(speed, port)
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
+                    val['values']['port'] = port
+                    val['values']['direction'] = direction & 0x03
+                    self._send(fmt, ID, val) 
+                
+                def myspeed(speed_value = 100, port = 1): 
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
+                    val['values']['port'] = port
+                    val['values']['speed'] = speed_value  
+                    self._send(fmt, ID, val) 
+                
+                def stop(port = 3):  
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_stop')
+                    cmds = []
+                    if port == 3:
+                        val['values']['port'] = 1
+                        cmds.append((fmt, ID, {'values':{'port':1}})) 
+                        val['values']['port'] = 2
+                        cmds.append((fmt, ID, {'values':{'port':2}})) 
+                        self._sendMult(cmds) 
+                        window.console.log('stopped')
+                    else:
+                        val['values']['port'] = port
+                        self._send(fmt, ID, val) 
+                    
+                def runL(speed = 100):
+                    if speed != None:
+                        self.set_speed(speed, 1)
+                    self.run(None, 1,2)
+
+                def runR(speed = 100):
+                    if speed != None:
+                        self.set_speed(-speed, 2)
+                    self.run(None, 2,2)
+
+                def runB(speed_value = 100):
+                    cmds = []
+                    if speed_value != None:
+                        cmds = []
+                        fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
+                        cmds.append((fmt, ID, {'values':{'port':1,'speed':-speed_value}})) 
+                        window.console.log('current val: ',cmds)
+                        cmds.append((fmt, ID, {'values':{'port':2,'speed':speed_value}})) 
+                        window.console.log('current val: ',cmds)
+
+                        '''fmt, ID, val = self._hub.hubInfo.commands.get('motor_speed')
+                        val['values']['port'] = 1
+                        val['values']['speed'] = speed_value  
+                        cmds.append((fmt, ID, val)) 
+                        window.console.log('current val: ',cmds)
+                        val2 = val.copy()
+                        val2['values']['port'] = 2
+                        cmds.append((fmt, ID, val2)) 
+                        window.console.log('current val: ',cmds)'''
+                    fmt, ID, val = self._hub.hubInfo.commands.get('motor_run')
+                    val['values']['port'] = 1
+                    val['values']['direction'] = 1
+                    cmds.append((fmt, ID, {'values':{'port':1,'direction':1}})) 
+                    val['values']['port'] = 2
+                    val['values']['direction'] = 2
+                    cmds.append((fmt, ID, {'values':{'port':2,'direction':1}})) 
+                    self._sendMult(cmds) 
+
+                self.run = run
+                self.stop = stop
+                self.set_speed = myspeed  
+                self.run_left = runL
+                self.run_right = runR
+                self.run_both = runB
         except Exception as e:
             window.console.log('Error in _information: ',e)
 
     async def _sendIt(self, fmt, ID, val):
-        return await self._hub.send(fmt, ID, val) 
+        try:
+            await self._hub.send(fmt, ID, val) 
+            window.console.log('sent: ',fmt, ID, val)
+            return True
+        except asyncio.CancelledError:
+            print("Task was cancelled due to timeout.")
+            raise
+        return  False
+        
+    async def _sendItMult(self, cmds):
+        try:
+            for (fmt, ID, val) in cmds:
+                await self._hub.send(fmt, ID, val) 
+                window.console.log('sent: ',fmt, ID, val)
+            return True
+        except asyncio.CancelledError:
+            print("Task was cancelled due to timeout.")
+            raise
+        return  False
         
     def _send(self, fmt, ID, val):
         loop = asyncio.get_event_loop()
-        success = loop.create_task(self._sendIt(fmt, ID, val))
+        window.console.log('I think I sent: ',fmt, ID, val)
+        try:
+            task = asyncio.wait_for(self._sendIt(fmt, ID, val), timeout=6)
+            loop.create_task(task)
+            return True
+        except asyncio.TimeoutError:
+            print("A timeout occurred in the sync function!")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+        return False
+
+    def _sendMult(self,cmds):
+        loop = asyncio.get_event_loop()
+        window.console.log('I think I sent: ',cmds)
+        try:
+            task = asyncio.wait_for(self._sendItMult(cmds), timeout=6)
+            loop.create_task(task)
+            return True
+        except asyncio.TimeoutError:
+            print("A timeout occurred in the sync function!")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+        return False
 
     async def _new_data(self, reply):
         try:
@@ -97,6 +219,7 @@ class Element:
             reply = self._hub.reply
             if 'Motor_1' in reply.keys():
                 self.position = reply['Motor_1']['position']
+                #window.console.log(self.position)
                 self.angle = reply['Motor_1']['angle']
                 self.speed = reply['Motor_1']['speed']
                 self.battery = reply['hub info']['Battery']
@@ -107,14 +230,14 @@ class Element:
                 self.speed2 = reply['Motor_2']['speed']
                 self.battery2 = reply['hub info']['Battery']
                 
-            if 'Color' in reply.keys():
+            if 'Color' in reply.keys(): #'color', 'reflection', 'red', 'green', 'blue', 'hue', 'saturation', 'value'
                 self.color = reply['Color']['color']
                 self.reflection = reply['Color']['reflection']
                 self.rgb = (reply['Color']['red'], reply['Color']['green'], reply['Color']['blue'])
                 self.hsv = (reply['Color']['hue'], reply['Color']['stauration'], reply['Color']['value'])
                 self.battery = reply['hub info']['Battery']
                 
-            if 'Joystick' in reply.keys():
+            if 'Joystick' in reply.keys():  #'leftStep', 'rightStep','leftAngle','rightAngle'
                 self.leftStep = reply['Joystick']['leftStep']
                 self.rightStep = reply['Joystick']['rightStep']
                 self.leftAngle = reply['Joystick']['leftAngle']
@@ -124,7 +247,10 @@ class Element:
             pass
 
     async def update_rate(self,rate = 20):
-        await self._hub.feed_rate(rate)
+        await self._hub.feed_rate(rate)  #millisec - 20 is the fastest
+
+
+
 
 # Get terminal reference
 python_terminal = document.getElementById("python-terminal")
@@ -164,16 +290,3 @@ _e1.addEventListener('change', rename_func1)
 _e2.addEventListener('change', rename_func2)
 
 window.console.log("Rename event listeners attached!")
-
-from pyscript.js_modules import code_editor
-python_terminal = document.getElementById("python-terminal")
-@when('click','#REPLRun')
-def typeIt():
-    python_terminal.process('\x03')
-    mycode = code_editor.editor.getValue()
-    lines = mycode.split("\n")
-    python_terminal.process('\x05')
-    for line in lines:
-        # DON'T write char by char - just process the whole line directly
-        python_terminal.process(line)  # This preserves the indentation
-    python_terminal.process('\x04')
