@@ -95,6 +95,28 @@ p {
     line-height: 1.4;
 }
 
+
+.paragraph-12{
+    font-style: italic;
+    -webkit-text-size-adjust: 100%;
+    --brown: #333129;
+    --yellow: #fcd700;
+    --black: black;
+    --golden-brown-transparent: #635d3c26;
+    --white: #fff;
+    --color-2: #c9b128;
+    --transparent: #fff0;
+    --golden-brown: #96893c;
+    color: var(--brown);
+    font-family: Droid Sans,sans-serif;
+    box-sizing: border-box;
+    margin: 0 10px;
+    padding: 4px 10px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
 em {
     color: #666;
     font-style: italic;
@@ -127,7 +149,7 @@ em {
 
 .code-list-item{
     -webkit-text-size-adjust: 100%;
-    --brown: #333129;
+    --brown: #ffffff;
     --yellow: #fcd700;
     --black: black;
     --golden-brown-transparent: #635d3c26;
@@ -140,7 +162,7 @@ em {
     list-style: none;
     box-sizing: border-box;
     font-size: 12px;
-    background-color: #00000014;
+    background-color: #010101;
     width: 400px;
     margin-bottom: 10px;
     padding: 10px 10px 10px 20px;
