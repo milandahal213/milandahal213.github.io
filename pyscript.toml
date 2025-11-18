@@ -8,12 +8,12 @@ name = "Billowing Tooth"
 "./TechElement_EP2.py" = ""
 "./TechElement.py" = ""
 "./1_starters.py" = ""
-"./2_discover.py" = ""
-"./2_loops.py" = ""
 "./3_libraries.py" = ""
+"./2_loops.py" = ""
 "./4_channels.py" = ""
 "./5_LEGO.py" = ""
-"./6_codeEditor.py" = ""
+"./6_discover.py" = ""
+"./7_codeEditor.py" = ""
 
 
 [js_modules.main]
