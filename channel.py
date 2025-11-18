@@ -23,8 +23,33 @@ def iscoroutinefunction(obj):
 
     return inspect.iscoroutinefunction(obj)
     
+ChannelHTML = '''
 
-ChannelHTML = '''<h3 id = 'title{num}'>Channel Setup</h3>
+<div class="channel-container">
+    <div class="channel-grid">
+        <div class="channel-row">
+            <div id="live{num}"></div>
+            <button id="channel_connect{num}" class="small-btn">Connect</button>
+            <input id="topic{num}" class="channel-input topic-input" value="/LEGO">
+        </div>
+        
+        <div class="channel-row">
+            <span class="channel-label">Received:</span>
+            <label id="channelValue{num}" class="channel-label"></label>
+        </div>
+        <!-- Second Row: Send button + Received label + Payload input (all in one line) -->
+        <div class="channel-row">
+            <button id="send{num}" class="small-btn">Send</button>
+
+            <input id="payload{num}" class="channel-input payload-input" value="Send This">
+        </div>
+        
+        <div id="log{num}" class="message-log"></div>
+        <div style="color:#0000FF; width: 800px" id="activity{num}"></div>
+    </div>
+</div>
+'''
+ChannelHTML1 = '''<h3 id = 'title{num}'>Channel Setup</h3>
 <table>    
   <tr>
     <td><button id = 'channel_connect{num}'>connect</button></td>
@@ -33,7 +58,7 @@ ChannelHTML = '''<h3 id = 'title{num}'>Channel Setup</h3>
     <td><input id = 'topic{num}' maxlength = 50 type='text' value = {dtopic} style = 'color:#0000FF'></td>
     <td> = </td>
     <td style="width: 100px; text-align: center"><label id = "channelValue{num}">0</label></td>
-    <td><input id = 'payload{num}' maxlength = 50 type='text' value = 'send this'></td>
+    <td><input id = 'payload{num}' maxlength = 50 type='text' value = 'Send This'></td>
     <td><button id = "send{num}">Send</button></td>
   </tr>
 </table>

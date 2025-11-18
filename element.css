@@ -1,0 +1,132 @@
+/* ============================================
+   ELEMENT CONTAINER STYLES (FOR MOTORS/SENSORS)
+   ============================================ */
+
+.element-container {
+    background: none !important;
+    border: none !important;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.element-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.element-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.element-label {
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Element input styling - shorter inputs */
+.element-input {
+    padding: 4px 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 0;
+    max-width: 120px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.element-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Element dropdown styling */
+.element-dropdown {
+    padding: 4px 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 0;
+    max-width: 200px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: white;
+    cursor: pointer;
+}
+
+.element-dropdown:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Element button styling */
+.element-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    background: #f7f7f7;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+    min-width: fit-content;
+    flex-shrink: 0;
+}
+
+.element-btn:hover {
+    background: #e0e0e0;
+}
+
+.element-btn:active {
+    background: #d0d0d0;
+}
+
+/* Element name label (for "Sensor", "Motor", etc.) */
+.element-name-label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 60px;
+}
+
+/* Element value display */
+.element-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 30px;
+}
+
+/* Element activity log */
+.element-activity {
+    color: #0000FF;
+    width: 100%;
+    max-width: 500px;
+    font-size: 8px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}

@@ -95,7 +95,6 @@ p {
     line-height: 1.4;
 }
 
-
 .paragraph-12{
     font-style: italic;
     -webkit-text-size-adjust: 100%;
@@ -115,7 +114,6 @@ p {
     font-size: 14px;
     line-height: 1.4;
 }
-
 
 em {
     color: #666;
@@ -622,14 +620,6 @@ div[id^="activity"] {
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
 }
 
-div[id^="live"] {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-}
-
 /* ============================================
    CHANNEL CARD STYLES (New)
    ============================================ */
@@ -795,35 +785,6 @@ div[id^="live"] {
 
 .status-yellow {
     background-color: #ffd700;
-}
-
-/* ============================================
-   CHANNEL INPUTS
-   ============================================ */
-.channel-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.channel-input:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-}
-
-.topic-input {
-    color: #0000FF;
-    font-weight: 500;
-}
-
-.payload-input {
-    color: #333;
 }
 
 /* ============================================

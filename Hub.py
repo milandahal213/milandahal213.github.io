@@ -211,4 +211,3 @@ class Hub_PS:
             self.activity.innerText = json.dumps(self.reply)
         if self.final_callback:
             await self.final_callback(self.reply)
-
