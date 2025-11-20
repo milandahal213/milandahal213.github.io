@@ -27,7 +27,7 @@
 
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-            <h3>Using print()</h3>
+            <h3>Using print</h3>
             <p class="paragraph-11">The <span class="fs-tooltip" fb-tooltip-position="top"
                     fb-tooltip-animation="shift-away"
                     fb-tooltip-message=" A REPL is like a live chat with your computer. You type a command and it answers right away. REPL stands for Read, Evaluate, Print, Loop.  Read: The computer reads what you type. Evaluate: It runs or calculates your code. Print: It shows you the result."
@@ -54,14 +54,13 @@
 
             <p class="paragraph-10"><em>Try printing out a different word or phrase.</em></p>
         </div>
+        <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+            <script id="python-terminal" type="mpy" src="./2_print.py" config="./pyscript.toml" terminal
+                worker></script>
+        </div>
     </div>
-
-    <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
-    <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
-        <script id="python-terminal" type="mpy" src="./2_print.py" config="./pyscript.toml" terminal worker></script>
-    </div>
-    </div>
-    <script src="scripts.js"></script>
+    <script src="./scripts.js"></script>
 </body>
 
 </html>
