@@ -24,7 +24,6 @@ def iscoroutinefunction(obj):
     return inspect.iscoroutinefunction(obj)
     
 ChannelHTML = '''
-
 <div class="channel-container">
     <div class="channel-grid">
         <div class="channel-row">
@@ -37,15 +36,21 @@ ChannelHTML = '''
             <span class="channel-label">Received:</span>
             <label id="channelValue{num}" class="channel-label"></label>
         </div>
-        <!-- Second Row: Send button + Received label + Payload input (all in one line) -->
+        
         <div class="channel-row">
             <button id="send{num}" class="small-btn">Send</button>
-
             <input id="payload{num}" class="channel-input payload-input" value="Send This">
         </div>
         
         <div id="log{num}" class="message-log"></div>
-        <div style="color:#0000FF; width: 800px" id="activity{num}"></div>
+        
+        <div class="channel_message">
+        <table>
+        <tr>
+        <td><p class="hidebutton" id="toggleText{num}">Hide</p></td>
+        <td><div id="activity{num}"></div></td></tr>
+
+        </div>
     </div>
 </div>
 '''
@@ -164,6 +169,7 @@ class CEEO_Channel():
             self.activity.innerText = f"WebSocket connected: {now()}"
             self.is_connected = True
             self.reconnect_attempts = 0
+            self.c_btn.innerText = 'DISCONNECT'
         def onclose(event):
             self.liveBtn.style.backgroundColor = 'red'
             self.activity.innerText = f"WebSocket disconnected: {now()}"

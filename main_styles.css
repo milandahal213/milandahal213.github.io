@@ -613,11 +613,24 @@ label {
 }
 
 div[id^="activity"] {
-    color: #666;
+    color: #0087e1;
     font-size: 11px;
-    margin-top: 10px;
     word-wrap: break-word;
     font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+.hidebutton{
+    margin: 0;
+    text-decoration: underline;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #1d5aea;
+    background: #f0f0f0;
+    border-radius: 4px;
+    user-select: none;
+    transition: background 0.2s ease;
 }
 
 /* ============================================
