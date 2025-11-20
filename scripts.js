@@ -88,6 +88,7 @@ function setupToggleObserver() {
 
 function attachToggleListener(toggleElement, targetDiv) {
   // Prevent attaching multiple listeners
+  console.log('Attaching listener to', toggleElement.id);
   if (toggleElement.dataset.listenerAttached) {
     return;
   }

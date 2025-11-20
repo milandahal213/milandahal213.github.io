@@ -24,46 +24,42 @@
 </head>
 
 <body>
-    <div id="headertext" style="display: flex;  margin: 20px;">
 
-    </div>
     <div id="container" style="display: flex; height: 100vh; gap: 0;">
         <div id="left" style="flex: 1; overflow: auto;">
-            <div id="container" style="display: flex; height: 100vh; gap: 0;">
-                <div id="left" style="flex: 1; overflow: auto;">
-                    <h3>Using print()</h3>
-                    <p class="paragraph-11">The <span class="fs-tooltip" fb-tooltip-position="top"
-                            fb-tooltip-animation="shift-away"
-                            fb-tooltip-message=" A REPL is like a live chat with your computer. You type a command and it answers right away. REPL stands for Read, Evaluate, Print, Loop.  Read: The computer reads what you type. Evaluate: It runs or calculates your code. Print: It shows you the result."
-                            fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50"
-                            fb-tooltip="true" fb-tooltip-trigger="hover">REPL</span> can also write out requested
-                        information with print(). Try typing the lines below into the REPL.</p>
+            <h3>Using print()</h3>
+            <p class="paragraph-11">The <span class="fs-tooltip" fb-tooltip-position="top"
+                    fb-tooltip-animation="shift-away"
+                    fb-tooltip-message=" A REPL is like a live chat with your computer. You type a command and it answers right away. REPL stands for Read, Evaluate, Print, Loop.  Read: The computer reads what you type. Evaluate: It runs or calculates your code. Print: It shows you the result."
+                    fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="50" fb-tooltip="true"
+                    fb-tooltip-trigger="hover">REPL</span> can also write out requested
+                information with print(). Try typing the lines below into the REPL.</p>
 
-                    <ul role="list" class="list-5 w-list-unstyled">
-                        <li class="code-list-item">a = 7
-                            <br> 
-                            print(a)</li>
-                    </ul>
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">a = 7
+                    <br>
+                    print(a)
+                </li>
+            </ul>
 
-                    <p class="paragraph-10"><em>The REPL should print the current value of the variable "a."</em></p>
+            <p class="paragraph-10"><em>The REPL should print the current value of the variable "a."</em></p>
 
-                    <p class="paragraph-10">You can also print custom text. This is useful when you want to track
-                        whether a piece of your program was able to run correctly. Try entering the line below into the
-                        REPL.</p>
+            <p class="paragraph-10">You can also print custom text. This is useful when you want to track
+                whether a piece of your program was able to run correctly. Try entering the line below into the
+                REPL.</p>
 
-                    <ul role="list" class="list-5 w-list-unstyled">
-                        <li class="code-list-item">print('hello!')</li>
-                    </ul>
+            <ul role="list" class="list-5 w-list-unstyled">
+                <li class="code-list-item">print('hello!')</li>
+            </ul>
 
-                    <p class="paragraph-10"><em>Try printing out a different word or phrase.</em></p>
-                </div>
-            </div>
+            <p class="paragraph-10"><em>Try printing out a different word or phrase.</em></p>
         </div>
-        <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
-        <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
-            <script id="python-terminal" type="mpy" src="./2_print.py" config="./pyscript.toml" terminal
-                worker></script>
-        </div>
+    </div>
+
+    <div id="divider" style="width: 5px; background-color: #ccc; cursor: col-resize;"></div>
+    <div id="right" style="flex: 1; overflow: auto; padding: 20px;">
+        <script id="python-terminal" type="mpy" src="./2_print.py" config="./pyscript.toml" terminal worker></script>
+    </div>
     </div>
     <script src="scripts.js"></script>
 </body>
