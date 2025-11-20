@@ -49,7 +49,7 @@ ChannelHTML = '''
         <tr>
         <td><p class="hidebutton" id="toggleText{num}">Hide</p></td>
         <td><div id="activity{num}"></div></td></tr>
-
+        </table>
         </div>
     </div>
 </div>
@@ -104,7 +104,6 @@ class CEEO_Channel():
         
         if self.c_btn.innerText == 'CONNECT':
             self.setupSocket()
-            self.c_btn.innerText = 'DISCONNECT'
         else:
             self.c_btn.innerText = 'CONNECT'
             self.close()
@@ -131,6 +130,7 @@ class CEEO_Channel():
             self.connected = True
             self.activity.innerText = json.dumps(message)
             self.liveBtn.style.backgroundColor = 'green'
+            
         if message['type'] == 'data':
             if message['payload']:
                 try:

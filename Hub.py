@@ -22,7 +22,9 @@ HubHTML = '''
   </tr>
 </table>
 
-<div style = 'color:#0000FF; width: 500px; font-size: 8px' id = "activity{num}"></div>
+
+
+<div style = 'display:none; color:#0000FF; width: 500px; font-size: 8px' id = "activity{num}"></div>
 '''
 
 import SpikePrime as hub0
