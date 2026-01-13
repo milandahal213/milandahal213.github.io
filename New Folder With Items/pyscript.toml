@@ -1,0 +1,21 @@
+name = "Billowing Tooth"
+
+[files]
+"./channel.py" = ""
+"./Hub.py" = ""
+"./pyConst.py" = ""
+"./SpikePrime.py" = ""
+"./TechElement_EP2.py" = ""
+"./TechElement.py" = ""
+"./1_starters.py" = ""
+"./3_libraries.py" = ""
+"./2_print.py" = ""
+"./4_channels.py" = ""
+"./5_LEGO.py" = ""
+"./6_discover.py" = ""
+"./7_codeEditor.py" = ""
+
+
+[js_modules.main]
+"./ble.js" = "ble"
+"./code.js" = "code_editor"

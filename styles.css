@@ -1,0 +1,14 @@
+/* Standard button style */
+.toggle-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+/* Style when the button is 'staying down' */
+.pressed {
+    background-color: #bbb;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); /* Inset shadow for depth */
+    transform: translateY(2px); /* Moves it down slightly */
+}

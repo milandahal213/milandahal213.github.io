@@ -1,128 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Rogers Python Intro - All Tabs</title>
+    <title>Simple_Terminal</title>
 
     <!-- Recommended meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    <!-- Safari SharedArrayBuffer -->
-    <script src="./safari-sab.js"></script>
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css">
 
-    <!-- PyScript -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.10.3/core.css">
-    <script type="module" src="https://pyscript.net/releases/2025.10.3/core.js"></script>
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
 
-    <!-- CodeMirror CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
-
-
-    <meta http-equiv="Permissions-Policy" content="bluetooth=*">
-
-    <!-- Koulen Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="./main_styles.css">
-
-    <script>/*! coi-serviceworker v0.1.7 - Guido Zuidhof and contributors, licensed under MIT */
-        /*! mini-coi - Andrea Giammarchi and contributors, licensed under MIT */
-        (({ document: d, navigator: { serviceWorker: s } }) => {
-            if (d) {
-                const { currentScript: c } = d;
-                s.register(c.src, { scope: c.getAttribute('scope') || '.' }).then(r => {
-                    r.addEventListener('updatefound', () => location.reload());
-                    if (r.active && !s.controller) location.reload();
-                });
-            }
-            else {
-                addEventListener('install', () => skipWaiting());
-                addEventListener('activate', e => e.waitUntil(clients.claim()));
-                addEventListener('fetch', e => {
-                    const { request: r } = e;
-                    if (r.cache === 'only-if-cached' && r.mode !== 'same-origin') return;
-                    e.respondWith(fetch(r).then(r => {
-                        const { body, status, statusText } = r;
-                        if (!status || status > 399) return r;
-                        const h = new Headers(r.headers);
-                        h.set('Cross-Origin-Opener-Policy', 'same-origin');
-                        h.set('Cross-Origin-Embedder-Policy', 'require-corp');
-                        h.set('Cross-Origin-Resource-Policy', 'cross-origin');
-                        return new Response(body, { status, statusText, headers: h });
-                    }));
-                });
-            }
-        })(self);
+      <script>
+        globalThis.init = Promise.withResolvers();
+        globalThis.init.promise.then(utils => {
+            const { xworker } = document.querySelector('[worker]');
+            Object.assign(xworker.sync, utils);
+        });
     </script>
-</head>
-
-<body>
-    <div class="tab-container">
-        <div class="tab-buttons">
-            <button class="tab-button active" onclick="showTab('starters')">Basics</button>
-            <button class="tab-button" onclick="showTab('print')">Print</button>
-            <button class="tab-button" onclick="showTab('libraries')">Libraries</button>
-            <button class="tab-button" onclick="showTab('channels')">Channels</button>
-            <button class="tab-button" onclick="showTab('lego')">WAVE</button>
-            <button class="tab-button" onclick="showTab('discover')">DISCOVER</button>
-            <button class="tab-button" onclick="showTab('editor')">Code Editor</button>
-
-
-        </div>
-
-        <!-- Tab Contents -->
-        <div id="starters" class="tab-content active">
-            <iframe src="./1_starters.html" allow="bluetooth"></iframe>
-        </div>
-
-        <div id="print" class="tab-content">
-            <iframe src="./2_print.html" allow="bluetooth"></iframe>
-        </div>
-
-        <div id="libraries" class="tab-content">
-            <iframe src="./3_libraries.html" allow="bluetooth"></iframe>
-        </div>
-
-        <div id="channels" class="tab-content">
-            <iframe src="./4_channels.html" allow="bluetooth"></iframe>
-        </div>
-
-        <div id="lego" class="tab-content">
-            <iframe src="./5_LEGO.html" allow="bluetooth"></iframe>
-        </div>
-
-        <div id="discover" class="tab-content">
-            <iframe src="./6_discover.html" allow="bluetooth"></iframe>
-        </div>
-        
-        <div id="editor" class="tab-content">
-            <iframe src="./7_codeEditor.html" allow="bluetooth"></iframe>
-        </div>
-
-    </div>
-
-    <script src="./scripts.js"></script>
-
-    <script>
-        // Tab switching function
-        function showTab(tabName) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.remove('active'));
-
-            // Remove active class from all buttons
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            // Show selected tab
-            document.getElementById(tabName).classList.add('active');
-
-            // Add active class to clicked button
-            event.target.classList.add('active');
+    <style>
+        #help_table, #help_table th, #help_table td {
+            border: 1px solid black;
+            border-collapse: collapse; /* Merges borders into a single line */
+            padding: 8px; /* Adds space between content and borders */
+            text-align: left; /* Aligns text to the left */
         }
+        #help_table th {
+          background-color: #dddddd; /* A light grey hex code */
+        }
+        /* Standard button style */
+        .released {
+            padding: 5px 20px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        
+        /* Style when the button is 'staying down' */
+        .pressed {
+            background-color: #bbb;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); /* Inset shadow for depth */
+            transform: translateY(2px); /* Moves it down slightly */
+        }   
+          #terminal-wrapper {
+            height: 200px;
+            overflow-y: scroll; /* Forces vertical scrollbar to always show */
+            border: 1px solid #ccc;
+            overflow-anchor: auto;
+          }
+          #terminal-wrapper::-webkit-scrollbar {
+            width: 8px;
+          }
+          #terminal-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+          }
+        </style>
+</head>
+<body>
+  <body>
+    <h3>Connections (DOM)</h3>
+    <div id='all_things_channels'></div>
+    <div id='all_things_hubs'></div>
+    <script type="mpy-editor" src="./dom_code.py" config="./pyscript.toml" env = 'simple' setup></script>
+    <h3>Coding Area (worker)</h3>
+    Unit Tests: 
+    <button id = "UT_channel">Channels</button>
+    <button id = "UT_single">Single Motor</button>
+    <button id = "UT_double">Double Motor</button>
+    <button id = "UT_color">Color Sensor</button>
+    <button id = "UT_controller">Controller</button>
+    <script id="python-worker" env = 'simple' type = 'mpy-editor'>
+import time
+print('Waiting for permission...')
+while channel.msg != 'go':
+    time.sleep(0.1)
+print('Waiting to Move...')
+while motor.position <100:
+    time.sleep(1)
+channel.send('done')
+print('Done')
     </script>
-</body>
+      <div id="terminal-wrapper">
+    <script id="python-terminal" type="mpy" src="./worker_code.py" config="./pyscript.toml"env = 'simple' terminal worker></script>
+</div>
+    <button id = 'REPL_Run' hidden = true >Execute code in Terminal</button>
+    <button id = 'REPL_RunE' hidden = true>Execute code in Terminal using CtrlE</button>
+    <button id="myButton" class="released">Abort?</button>
+    <br><br>
+    <table id = 'help_table'>
+        <thead>
+            <tr><th>Command</th><th>Meaning</th><th>Usage</th></tr>
+        </thead>
+        <tr><td>channel.msg</td><td>returns the last value read</td><td>command.msg</td></tr>
+        <tr><td>channel.send</td><td>sends a new value to the current channel</td><td>channel.send('test')</td></tr>
+        <tr><td>channel.post</td><td>posts to any channel</td><td>channel.post('/fred','test')</td></tr>
+        <tr><td>motor.run</td><td>Runs motor at speed 10</td><td>motor.run(10)</td></tr>
+        <tr><td>motor.stop</td><td>Stops motor </td><td>motor.stop()</td></tr>
+        <tr><td>motor.run_to</td><td>Turns to a specific position </td><td>motor.run_to(pos = 10, port = 1, direction = 2)</td></tr>
+        <tr><td>motor.run_angle</td><td>Turns thru a specific angle </td><td>motor.run_angle(angle = 10, port = 1, direction = 2)</td></tr>
+        <tr><td>motor.position</td><td>Returns the motor position</td><td>motor.position</td></tr>
+        <tr><td>sensor.leftAngle</td><td>Returns the position of the left joystick</td><td>sensor.leftAngle</td></tr>
+        <tr><td>sensor.reflection</td><td>Returns the value of reflected light</td><td>sensor.reflection</td></tr>
+        <tr><td colspan="3"><em>There are a lot more methods and properties, just type sensor. and hit TAB in the REPL.  
+            On motors, port is left(1) or right(2) and direction is CW (0), CCW (1), closest (2), or longest (3)</em></td></tr>
+    </table>
+    <h3>Advanced DOM coding area</h3>
+    <script id="python-local"  env = 'simple' type = 'mpy-editor'>
+from pyscript import document
 
+CtrlC = document.getElementById('myButton')
+    </script>
+
+  </body>
 </html>
